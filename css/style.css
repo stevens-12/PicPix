@@ -1,0 +1,624 @@
+/* Import Google font - Mulish & Arima */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@200;400;600;700&family=Mulish:wght@200;400;600;800;900&display=swap');
+
+/* CSS variables with branding styles  */
+:root {
+    /* Fonts */
+    --primary-font: 'Mulish', sans-serif;
+    --title-font: 'Arima', cursive;
+    /* Primary brand colors app */
+    --primary-color: #112D4E;
+    --second-color: #1D4E89;
+    --background-color: #DBE2EF;
+    /* Extra brand colors app */
+    --Possible-yellow-color: #E8A84A;
+    --Possible-blue-color: #D0E3EF;
+    /* Greys */
+    --soft-gray: #DEE2E6;
+    --medium-gray: #ADB5BD;
+    --bold-gray: #495057;
+    /* Basic colors */
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+}
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+    font-size: 62.5%;
+}
+
+/* <a> tags without added styles */
+a {
+    text-decoration: none;
+}
+
+/* Navigation bar styles */
+.header-navbar {
+    position: fixed;
+    height: 8rem;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--background-color);
+}
+
+.navbar {
+    display: flex;
+    height: 100%;
+    width: 80%;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .hamburger-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 2.4rem;
+}
+
+.navbar .logo img {
+    display: flex;
+    height: 4.5rem;
+    width: 9rem;
+}
+
+.navbar .logo1 img {
+    display: flex;
+    height: 4rem;
+    width: 4rem;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.navbar .close-btn {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    display: none;
+}
+
+.navbar .links a {
+    position: relative;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 400;
+    transition: 0.1s ease;
+}
+
+.navbar .links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.2rem;
+    bottom: 0;
+    left: 0;
+    background-color: var(--second-color);
+    transition: width .3s;
+}
+
+.navbar .links a:hover {
+    color: var(--second-color);
+}
+
+.navbar .links a:hover::after {
+    width: 100%;
+}
+
+.navbar .login-btn {
+    border: 0.2rem solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0.8rem 2.4rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.navbar .login-btn:hover {
+    border: 0.2rem solid var(--background-color);
+    background-color: var(--second-color);
+    color: var(--background-color);
+    box-shadow: 0 0.2rem 0.4rem 0 var(--second-color), 0.2rem 0.4rem 0 var(--second-color);
+    transform: translateY(-0.2rem);
+}
+
+.navbar .login-btn:active {
+    transform: scale(0.80);
+}
+
+/* Sign up and login modal window styles */
+.modal_form {
+    position: relative;
+}
+
+/* Blurring effect on the body when activating the login and sing up modal window */
+.blur-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+    transition: 0.1s ease;
+}
+
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* form styles  */
+.form_container {
+    position: fixed;
+    max-width: 32rem;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 101;
+    background: var(--background-color);
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 0 1rem var(--primary-color);
+    transition: all 0.4s ease-out;
+}
+
+.modal_form.show .form_container {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.signup_form {
+    display: none;
+}
+
+.form_container.active .signup_form {
+    display: block;
+}
+
+.form_container.active .login_form {
+    display: none;
+}
+
+.form_close {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    color: var(--primary-color);
+    font-size: 2.4rem;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.form_container h2 {
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    text-align: center;
+    font-family: var(--title-font);
+}
+
+.input_box {
+    position: relative;
+    margin-top: 3rem;
+    width: 100%;
+    height: 4rem;
+}
+
+.input_box input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 3rem;
+    font-size: 1.6rem;
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    transition: all 0.4s ease;
+    border-bottom: 0.2rem solid var(--medium-gray);
+}
+
+.input_box input:focus {
+    border-color: var(--primary-color);
+}
+
+.input_box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: var(--medium-gray);
+}
+
+.input_box i.email,
+.input_box i.password {
+    left: 0;
+}
+
+.input_box input:focus~i.email,
+.input_box input:focus~i.password {
+    color: var(--primary-color);
+}
+
+.input_box i.pw_hide {
+    right: 0;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.option_field {
+    margin-top: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form_container a {
+    color: var(--second-color);
+    font-size: 1.4rem;
+    font-family: var(--primary-font);
+}
+
+.form_container a:hover {
+    text-decoration: underline;
+}
+
+.checkbox {
+    display: flex;
+    column-gap: 0.8rem;
+    white-space: nowrap;
+}
+
+.checkbox input {
+    accent-color: var(--primary-color);
+}
+
+.checkbox label {
+    font-size: 1.4rem;
+    font-family: var(--primary-font);
+    cursor: pointer;
+    user-select: none;
+    color: var(--primary-color);
+}
+
+.form_container .button {
+    font-family: var(--primary-font);
+    font-size: 1.6rem;
+    background: var(--second-color);
+    color: var(--background-color);
+    margin-top: 3rem;
+    width: 100%;
+    padding: 1rem 0;
+    border-radius: 0.8rem;
+    transition: 0.15s ease;
+}
+
+.form_container .button:hover {
+    border: 0.2rem solid var(--background-color);
+    box-shadow: 0 0.2rem 0.4rem 0 var(--second-color), 0.2rem 0.4rem 0 var(--second-color);
+    transform: translateY(-0.2rem);
+}
+
+.form_container .button:active {
+    transform: scale(0.80);
+}
+
+.login_signup {
+    font-family: var(--primary-font);
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+/* Search bar styles and title */
+.search {
+    height: 80vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.search::before,
+.search img,
+.lightbox {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.search::before {
+    content: "";
+    z-index: 1;
+    background-color: var(--second-color);
+    opacity: 0.6;
+}
+
+.search img {
+    object-fit: cover;
+}
+
+.search .content {
+    z-index: 2;
+    color: var(--background-color);
+    padding: 0 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.search h1 {
+    font-size: 8rem;
+    font-family: var(--title-font);
+}
+
+.search p {
+    margin-top: 0.2rem;
+    font-family: var(--primary-font);
+    font-size: 2.4rem;
+}
+
+.search .search-box {
+    height: 5.5rem;
+    margin: 4rem 0;
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    cursor: default;
+    color: var(--medium-gray);
+    font-size: 2rem;
+    transform: translateY(-50%);
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-family: var(--primary-font);
+    font-size: 2rem;
+    padding-left: 5.5rem;
+    background: var(--background-color);
+    border-radius: 0.8rem;
+}
+
+.search-box input::placeholder {
+    color: var(--medium-gray);
+}
+
+.search-box input:focus::placeholder {
+    color: var(--bold-gray);
+}
+
+/* Image board styles */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+.gallery .images {
+    gap: 2rem;
+    max-width: 80%;
+    margin-top: 8rem;
+    columns: 5 28rem;
+    list-style: none;
+}
+
+.gallery .images .card {
+    display: flex;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.gallery .images img {
+    width: 100%;
+    z-index: 2;
+    position: relative;
+}
+
+.images .details {
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    bottom: -10rem;
+    display: flex;
+    align-items: center;
+    padding: 2rem 2rem;
+    justify-content: space-between;
+    transition: bottom 0.1s ease;
+}
+
+.images li:hover .details {
+    bottom: 0;
+}
+
+.photographer {
+    display: flex;
+    align-items: center;
+    color: var(--white-color);
+    font-weight: 400;
+}
+
+.photographer i {
+    margin-right: 1rem;
+    font-size: 1.6rem;
+}
+
+.photographer span {
+    font-size: 1.6rem;
+}
+
+button,
+i {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    transition: 0.2s ease;
+}
+
+.details button i {
+    color: var(--primary-color);
+    background: var(--white-color);
+    font-size: 1.6rem;
+    font-weight: 800;
+    padding: 0.4rem 0.8rem;
+}
+
+.details .download-btn:hover {
+    background: var(--primary-color);
+}
+
+/* Styles of the button to load more images */
+.gallery .load-more {
+    margin: 5rem 0;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
+    border: 0.2rem solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.gallery .load-more.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.gallery .load-more:hover {
+    border: 0.2rem solid var(--background-color);
+    background-color: var(--second-color);
+    color: var(--background-color);
+    box-shadow: 0 0.2rem 0.4rem 0 var(--second-color), 0.2rem 0.4rem 0 var(--second-color);
+    transform: translateY(-0.2rem);
+}
+
+.gallery .load-more:active {
+    transform: scale(0.80);
+}
+
+/* Modal image window or preview image styles */
+.lightbox {
+    z-index: 5;
+    position: fixed;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.lightbox.show {
+    visibility: visible;
+}
+
+.lightbox .wrapper {
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    width: 100%;
+    padding: 2rem;
+    max-width: 85rem;
+    background: var(--background-color);
+    border-radius: 1.6rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+.lightbox.show .wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .photographer {
+    color: var(--primary-color);
+}
+
+header .photographer i {
+    font-size: 1.6rem;
+    cursor: auto;
+}
+
+header .photographer span {
+    font-size: 1.6rem;
+}
+
+header .buttons i {
+    height: 4rem;
+    width: 4rem;
+    display: inline-block;
+    color: var(--background-color);
+    font-size: 1.6rem;
+    line-height: 4rem;
+    text-align: center;
+    background: var(--second-color);
+    border-radius: 0.8rem;
+    transition: 0.2s ease;
+}
+
+header .buttons i:first-child:hover {
+    background: var(--primary-color);
+}
+
+header .buttons i:last-child {
+    margin-left: 1rem;
+    font-size: 1.6rem;
+    background: var(--second-color);
+}
+
+header .buttons i:last-child:hover {
+    background: var(--primary-color);
+}
+
+.wrapper .preview-img {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.preview-img .img {
+    max-height: 65vh;
+}
+
+.preview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
