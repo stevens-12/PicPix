@@ -1,8 +1,5 @@
 /* Styles for devices with a screen size of 1024px or less, focused directly to Ipad and Tablets devices and some very small Laptops.  */
 @media  screen and (max-width: 1024px){
-    .search img {
-        object-fit: fill;
-    }
     .images .details {
         bottom: 0rem;
     }
@@ -15,23 +12,16 @@
 }
 
 /* Styles for devices with a screen size of 680px or smaller, focused directly on mobile devices. */
-@media screen and (max-width: 680px) {
-    .header-navbar {
-        background-color: var(--primary-color);
-    }
+@media screen and (max-width: 850px) {
     .navbar :is(.hamburger-btn, .close-btn) {
         display: flex;
     }
 
-    .navbar {
-        width: 90%;
-    }
-
-    .navbar .logo img {
+    .logo img {
         display: none;
     }
 
-    .navbar .links {
+    .links-container .links {
         position: fixed;
         top: 0;
         z-index: 10;
@@ -41,29 +31,30 @@
         width: 100%;
         padding-top: 6rem;
         text-align: center;
-        background: var(--primary-color);
+        background: var(--white-color);
         transition: 0.2s ease;
     }
 
-    .navbar .links.show-menu {
+    .links-container .links.show-menu {
         right: 0;
     }
+    
+    .links-container .links li:last-child {
+        margin-right: 0;
+    }
 
-    .navbar .links a {
+    .links-container .links a {
         display: inline-flex;
         margin: 2rem 0;
         font-size: 1.6rem;
-        color: var(--background-color);
+        color: var(--primary-color);
     }
 
-    .navbar .links a:hover{
+    .links-container .links a:hover{
         padding: 0.2rem;
-        color: var(--background-color);
     }
-
-    .navbar .links a::after{
-        color: var(--background-color);
-        background: var(--background-color);
+    .nav-container {
+        width: 90%;
     }
 
     .navbar .menu-container {
@@ -71,19 +62,28 @@
         align-items: center;
     }
 
+    .navbar .search-btn {
+        font-size: 1.6rem;
+        padding: 0.8rem 1rem;
+        margin-right: 0;
+    }
+    .navbar .search-btn  i  {
+        font-size: 1.6rem;
+    }
     .navbar .login-btn {
         font-size: 1.6rem;
         margin: 0 1rem;
-        color: var(--background-color);
-        border: 0.2rem solid var(--background-color);
+        padding: 0.8rem 1.6rem;
     }
 
     .navbar .hamburger-btn {
-        color: var(--background-color);
+        font-weight: 600;
+        color: var(--primary-color);
     }
 
     .navbar .close-btn {
-        color: var(--background-color);
+        font-weight: 600;
+        color: var(--primary-color);
     }
 
     .lightbox .wrapper {
@@ -98,27 +98,13 @@
         margin-left: 0.5rem;
     }
 
-    header .photographer span,
-    .search p {
+    header .photographer span{
         font-size: 1.6rem;
-    }
-
-    .search {
-        height: 80vh;
-    }
-
-    .search h1 {
-        font-size: 6rem;
     }
 
     .search .search-box {
         height: 5rem;
         margin: 3rem 0;
-    }
-
-    .search::before {
-        background-color: var(--primary-color);
-        opacity: 1;
     }
 
     .gallery .images {
@@ -131,9 +117,18 @@
         font-size: 1.6rem;
     }
 }
-
-@media (min-width: 680px) {
+@media (min-width: 850px) {
     .navbar .logo1 img {
         display: none;
+    }
+}
+
+@media (max-width: 470px) {
+    .navbar .search-btn {
+        font-size: 0;
+    }
+
+    .search p {
+        font-size: 2rem;
     }
 }

@@ -10,6 +10,7 @@ const imageWrapper = document.querySelector(".images"),
 const navbarMenu = document.querySelector(".navbar .links"),
     hamburgerBtn = document.querySelector(".hamburger-btn"),
     hideMenuBtn = navbarMenu.querySelector(".close-btn"),
+    menuLinks = document.querySelectorAll('.links a'),
     formOpenBtn = document.querySelector("#form-open"),
     modal_form = document.querySelector(".modal_form"),
     formContainer = document.querySelector(".form_container"),
@@ -19,7 +20,45 @@ const navbarMenu = document.querySelector(".navbar .links"),
     showPopupBtn = document.querySelector(".login-btn"),
     pwShowHide = document.querySelectorAll(".pw_hide");
 
-// Functions for the login and registration modal window and blur effect on its activation.
+// Function to move the navbar according to the scroll, if you scroll down it disappears and if you scroll up it reappears.
+let ubicacionPrincipal = window.scrollY;
+let $nav = document.querySelector("nav");
+
+window.addEventListener("scroll", function () {
+    let desplazamientoActual = window.scrollY;
+
+    if (ubicacionPrincipal >= desplazamientoActual) {
+        $nav.style.top = "0px";
+    } else {
+        $nav.style.top = "-80px";
+    }
+
+    ubicacionPrincipal = desplazamientoActual;
+});
+
+//Function that controls the appearance of the navigation bar when scrolling by adding background after 500px.
+const navbar = document.getElementById('nav');
+
+window.addEventListener('scroll', () => {
+    // Verifica si el scroll es mayor a 500px
+    if (window.scrollY > 500) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// Navigation navbar button to activate and redirect to search input.
+function scrollAndFocus() {
+    const section2 = document.getElementById('search-engine');
+    const inputBusqueda = document.getElementById('search-engine');
+
+    if (section2 && inputBusqueda) {
+        section2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        inputBusqueda.focus();
+    }
+}
+
 
 // Full body blur effect after activation of the login modal window.
 formOpenBtn.addEventListener("click", () => document.body.classList.toggle("show-popup"));
@@ -44,8 +83,14 @@ pwShowHide.forEach((icon) => {
 });
 
 // Show and hide mobile menu
-hamburgerBtn.addEventListener("click", () => { navbarMenu.classList.toggle("show-menu");});
-hideMenuBtn.addEventListener("click", () =>  hamburgerBtn.click());
+hamburgerBtn.addEventListener("click", () => { navbarMenu.classList.toggle("show-menu"); });
+hideMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbarMenu.classList.remove("show-menu");
+    });
+});
+
 
 // Activation of the login and Sign up buttons to receive the form or hide it.
 signupBtn.addEventListener("click", (e) => {
@@ -56,7 +101,6 @@ loginBtn.addEventListener("click", (e) => {
     e.preventDefault();
     formContainer.classList.remove("active");
 });
-
 
 // API key, pagination, searchTerm variables
 const apiKey = "WtRCh5VHR4XAFfCpbR9jfhrsRL1x91i4PVASrOCWl4AQnDOc6tu7L0Ew";
