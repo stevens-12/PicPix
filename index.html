@@ -19,11 +19,11 @@
     <header class="header-container">
         <nav id="nav" class="navbar">
             <div class="nav-container">
-                <div class="logo-container">
-                    <a href="#" class="logo">
+                <div>
+                    <a href="#" class="nav-imagotipo">
                         <img src="assets/imagotipo-1.png" alt="logo">
                     </a>
-                    <a href="#" class="logo1">
+                    <a href="#" class="nav-isologo">
                         <img src="assets/isologo-1.png" alt="logo">
                     </a>
                 </div>
@@ -35,8 +35,8 @@
                         <li><a href="#">Upload</a></li>
                     </ul>
                     <div class="menu-container">
-                        <button onclick="scrollAndFocus('search-engine')" class="search-btn" ><i class="uil uil-search"></i>Search</button>
-                        <button class="login-btn" id="form-open">Log in</button>
+                        <button onclick="scrollAndFocus('search-engine')" class="btn nav-search-btn" ><i class="uil uil-search"></i>Search</button>
+                        <button class="btn nav-login-btn" id="form-open">Log in</button>
                         <span class="hamburger-btn material-symbols-rounded">menu</span>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <!-- Login Form -->
                 <div class="form login_form">
                     <form action="#">
-                        <h2>Log in</h2>
+                        <h3>Log in</h3>
                         <div class="input_box">
                             <input type="email" placeholder="Enter your email" required />
                             <i class="uil uil-envelope-alt email"></i>
@@ -67,14 +67,14 @@
                             </span>
                             <a href="#" class="forgot_pw">Forgot password?</a>
                         </div>
-                        <button type="submit" class="button">Log in Now</button>
+                        <button type="submit" class="form-btn">Log in Now</button>
                         <div class="login_signup">Don't have an account? <a href="#" id="signup"> Sign up</a></div>
                     </form>
                 </div>
                 <!-- Sign up Form -->
                 <div class="form signup_form">
                     <form action="#">
-                        <h2>Sign up</h2>
+                        <h3>Sign up</h3>
                         <div class="input_box">
                             <input type="email" placeholder="Enter your email" required />
                             <i class="uil uil-envelope-alt email"></i>
@@ -89,7 +89,7 @@
                             <i class="uil uil-lock password"></i>
                             <i class="uil uil-eye-slash pw_hide"></i>
                         </div>
-                        <button class="button">Sign up Now</button>
+                        <button class="form-btn">Sign up Now</button>
                         <div class="login_signup">Already have an account? <a href="#" id="login">Log in</a></div>
                     </form>
                 </div>
@@ -99,7 +99,7 @@
         <section class="search">
             <div class="content">
                 <h1>PicPix</h1>
-                <p>Unleash Your Imagination with a Click</p>
+                <h3>Unleash Your Imagination with a Click</h3>
                 <div class="search-box">
                     <i class="uil uil-search"></i>
                     <input id="search-engine" type="text" placeholder="Search images">

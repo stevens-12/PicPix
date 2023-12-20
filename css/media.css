@@ -1,134 +1,176 @@
-/* Styles for devices with a screen size of 1024px or less, focused directly to Ipad and Tablets devices and some very small Laptops.  */
-@media  screen and (max-width: 1024px){
-    .images .details {
-        bottom: 0rem;
+/* General media query styles for tablets and smaller laptops */
+@media screen and (max-width: 1024px) {
+
+    /* Gallery adjustments for smaller screens */
+    .gallery {
+        .images {
+            columns: 5 26rem;
+
+            .details {
+                bottom: 0rem;
+                /* Ensure details are always visible */
+            }
+        }
     }
-    .gallery .images {
-        columns: 5 26rem;
-    }
-    .lightbox .wrapper {
-        max-width: calc(100% - 8rem);
+
+    /* Lightbox adjustments for smaller screens */
+    .lightbox {
+        .wrapper {
+            max-width: calc(100% - 20rem);
+            /* Reduce width for better fit */
+        }
     }
 }
 
-/* Styles for devices with a screen size of 680px or smaller, focused directly on mobile devices. */
+/* Media query styles for mobile devices (max-width: 850px) */
 @media screen and (max-width: 850px) {
-    .navbar :is(.hamburger-btn, .close-btn) {
-        display: flex;
+
+    /* Navigation adjustments for mobile layout */
+    .navbar {
+        :is(.hamburger-btn) {
+            display: flex;
+            /* Show hamburger button for menu toggle */
+        }
+
+        .nav-container {
+            width: 90%;
+            /* Adjust container width */
+        }
+
+        .nav-imagotipo img {
+            display: none;
+            /* Hide imagotipo on mobile */
+        }
+
+        /* Mobile menu styles */
+        .links-container {
+            .links {
+                /* Position and style the mobile menu */
+                position: fixed;
+                top: 0;
+                z-index: 10;
+                right: -100%;
+                display: block;
+                height: 100vh;
+                width: 100%;
+                padding-top: 6rem;
+                text-align: center;
+                background: var(--white-color);
+                transition: 0.2s ease;
+
+                li:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            /* Close button and links within the mobile menu */
+            .links .close-btn {
+                display: flex;
+                font-weight: 600;
+                color: var(--brand-primary-color);
+            }
+
+            .links a {
+                display: inline-flex;
+                margin: 2rem 0;
+                font-size: 1.6rem;
+
+                &:hover {
+                    padding: 0.2rem;
+                }
+            }
+
+            .links.show-menu {
+                right: 0;
+            }
+        }
+
+        /* Adjust search and login buttons for mobile */
+        .menu-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search-btn {
+            font-size: 1.6rem;
+            padding: 0.8rem 1rem;
+            margin-right: 0;
+
+            i {
+                font-size: 1.6rem;
+            }
+        }
+
+        .nav-login-btn {
+            font-size: 1.6rem;
+            margin: 0 1rem;
+            padding: 0.8rem 1.6rem;
+        }
     }
 
-    .logo img {
-        display: none;
+    /* Search section adjustments for mobile */
+    .search {
+        .search-box {
+            height: 5rem;
+            margin: 3rem 0;
+        }
     }
 
-    .links-container .links {
-        position: fixed;
-        top: 0;
-        z-index: 10;
-        right: -100%;
-        display: block;
-        height: 100vh;
-        width: 100%;
-        padding-top: 6rem;
-        text-align: center;
-        background: var(--white-color);
-        transition: 0.2s ease;
+    /* Gallery adjustments for mobile layout */
+    .gallery {
+        .images {
+            max-width: 90%;
+            margin-top: 2rem;
+            columns: 5 28rem;
+        }
+
+        .load-more {
+            font-size: 1.6rem;
+        }
     }
 
-    .links-container .links.show-menu {
-        right: 0;
-    }
-    
-    .links-container .links li:last-child {
-        margin-right: 0;
+    /* Lightbox adjustments for mobile layout */
+    .lightbox {
+        .wrapper {
+            max-width: calc(100% - 8.5rem);
+            /* Reduce width further on mobile */
+
+            header {
+
+                /* Adjust header elements for smaller screens */
+                .photographer span {
+                    font-size: 1.6rem;
+                }
+
+                .buttons i:last-child {
+                    margin-left: 0.5rem;
+                }
+
+                .preview-img {
+                    margin-top: 1rem;
+                }
+            }
+        }
     }
 
-    .links-container .links a {
-        display: inline-flex;
-        margin: 2rem 0;
-        font-size: 1.6rem;
-        color: var(--primary-color);
-    }
-
-    .links-container .links a:hover{
-        padding: 0.2rem;
-    }
-    .nav-container {
-        width: 90%;
-    }
-
-    .navbar .menu-container {
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar .search-btn {
-        font-size: 1.6rem;
-        padding: 0.8rem 1rem;
-        margin-right: 0;
-    }
-    .navbar .search-btn  i  {
-        font-size: 1.6rem;
-    }
-    .navbar .login-btn {
-        font-size: 1.6rem;
-        margin: 0 1rem;
-        padding: 0.8rem 1.6rem;
-    }
-
-    .navbar .hamburger-btn {
-        font-weight: 600;
-        color: var(--primary-color);
-    }
-
-    .navbar .close-btn {
-        font-weight: 600;
-        color: var(--primary-color);
-    }
-
-    .lightbox .wrapper {
-        max-width: calc(100% - 4rem);
-    }
-
-    .wrapper .preview-img {
-        margin-top: 1rem;
-    }
-
-    header .buttons i:last-child {
-        margin-left: 0.5rem;
-    }
-
-    header .photographer span{
-        font-size: 1.6rem;
-    }
-
-    .search .search-box {
-        height: 5rem;
-        margin: 3rem 0;
-    }
-
-    .gallery .images {
-        max-width: 90%;
-        margin-top: 2rem;
-        columns: 5 28rem;
-    }
-
-    .gallery .load-more {
-        font-size: 1.6rem;
-    }
 }
+
 @media (min-width: 850px) {
-    .navbar .logo1 img {
-        display: none;
+    .nav-isologo {
+        img {
+            display: none;
+        }
     }
 }
 
 @media (max-width: 470px) {
-    .navbar .search-btn {
-        font-size: 0;
+    .navbar {
+        .nav-search-btn {
+            font-size: 0;
+        }
     }
 
-    .search p {
-        font-size: 2rem;
+    .search h3 {
+        font-size: var(--font-size-plg);
     }
 }
