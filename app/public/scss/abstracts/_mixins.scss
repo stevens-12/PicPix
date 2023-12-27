@@ -1,0 +1,98 @@
+// ===============================================================
+// Mixins for efficient and consistent styling
+// ===============================================================
+
+// --------------------------------------------------
+// @mixin typeface($size, $weight, $color)
+// --------------------------------------------------
+// Applies basic typographic styles.
+//
+// @param $size - Font size in pixels or relative units.
+// @param $weight - Font weight (e.g., normal, bold, 700).
+// @param $color - Font color.
+@mixin typeface($size, $weight, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+// --------------------------------------------------
+// @mixin flexbox($direction, $content, $align)
+// --------------------------------------------------
+// Sets up a flexbox container with common properties.
+//
+// @param $direction - Flex direction (e.g., row, column).
+// @param $content - Justify content (e.g., flex-start, center, space-between).
+// @param $align - Align items (e.g., stretch, center, baseline).
+@mixin flexbox($direction, $content, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+
+// --------------------------------------------------
+// @mixin size($width, $height)
+// --------------------------------------------------
+// Sets element width and height.
+//
+// @param $width - Element width.
+// @param $height - Element height.
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+// --------------------------------------------------
+// @mixin position($position, $top, $right: null, $bottom: null, $left)
+// --------------------------------------------------
+// Sets element positioning properties.
+//
+// @param $position - Position type (e.g., relative, absolute, fixed).
+// @param $top - Top offset.
+// @param $right - Right offset (optional).
+// @param $bottom - Bottom offset (optional).
+// @param $left - Left offset.
+@mixin position($position, $top, $right: null, $bottom: null, $left, ) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// --------------------------------------------------
+// @mixin transition($property: all, $duration: 0.5s, $state: ease)
+// --------------------------------------------------
+// Applies a smooth transition effect.
+//
+// @param $property - CSS property to transition (defaults to all).
+// @param $duration - Transition duration in seconds (defaults to 0.5s).
+// @param $state - Transition timing function (defaults to ease).
+@mixin transition($property: all, $duration: 0.5s, $state: ease) {
+    transition: $property $duration $state;
+}
+
+// --------------------------------------------------
+// @mixin to($width)
+// --------------------------------------------------
+// Applies styles within a max-width media query.
+//
+// @param $width - Maximum width for the media query.
+@mixin to($width) {
+    @media (max-width: $width) {
+        @content;
+    }
+}
+
+// --------------------------------------------------
+// @mixin from($width)
+// --------------------------------------------------
+// Applies styles within a min-width media query.
+//
+// @param $width - Minimum width for the media query.
+@mixin from($width) {
+    @media (min-width: $width) {
+        @content;
+    }
+}

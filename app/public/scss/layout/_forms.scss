@@ -1,0 +1,173 @@
+// ===============================================================
+// Modal form styles
+//
+// This file styles the modal form used for login and signup.
+// ===============================================================
+.modal_form {
+    position: relative;
+
+    // ------------------------------------------------
+    // Form container
+    // ------------------------------------------------
+    .form_container {
+        // Positioning and dimensions
+        @include position(fixed, 50%, null, null, 50%);
+        @include size(100%, null);
+
+        // Appearance
+        max-width: 32rem;
+        transform: translate(-50%, -50%) scale(1.2);
+        z-index: 101;
+        background-color: $white-color;
+        padding: 2.4rem;
+        border-radius: 1.6rem;
+        pointer-events: none;
+        opacity: 0;
+        box-shadow: 0 0 1rem $primary-color;
+
+        // Transition for smooth appearance
+        @include transition(all, 0.4s, ease-out);
+
+        // Form switching (login vs. signup)
+        &.active .login_form {
+            display: none;
+        }
+
+        &.active .signup_form {
+            display: block;
+        }
+    }
+
+    // ------------------------------------------------
+    // Visible and interactive state
+    // ------------------------------------------------
+    &.show .form_container {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    // ------------------------------------------------
+    // Signup form (initially hidden)
+    // ------------------------------------------------
+    .signup_form {
+        display: none;
+    }
+
+    // ------------------------------------------------
+    // Form elements
+    // ------------------------------------------------
+    .form_close {
+        @include position(absolute, 2rem, 2rem, null, null);
+        @include typeface($im, null, $primary-color);
+        --ionicon-stroke-width: 70px;
+        cursor: pointer;
+    }
+
+    h3 {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .input_box {
+        @include size(100%, 4rem);
+
+        position: relative;
+        margin-top: 3rem;
+
+        input {
+            @include size(100%, 100%);
+            @include typeface($tsm, null, $primary-color);
+
+            border: none;
+            outline: none;
+            padding: 0 3rem;
+            background-color: $white-color;
+            border-bottom: 0.2rem solid $gray-medium;
+
+            @include transition(all, 0.4s, ease);
+
+            &:focus {
+                border-color: var(--brand-primary-color);
+            }
+        }
+
+        ion-icon {
+            @include position(absolute, 50%, null, null, null);
+            @include typeface($ism, null, $gray-medium);
+            --ionicon-stroke-width: 40px;
+
+
+            transform: translateY(-50%);
+
+            &.email,
+            &.password {
+                left: 0;
+            }
+
+            &.pw_hide {
+                right: 0;
+                font-size: $ism;
+                cursor: pointer;
+            }
+        }
+
+        input:focus~ion-icon.email,
+        input:focus~ion-icon.password {
+            color: $primary-color;
+        }
+    }
+
+    .error-message {
+        color: red;
+        display: none;
+        position: absolute;
+        font-size: x-small;
+        margin-top: 0.4rem;
+    }
+
+    .input_box.has-error .error-message {
+        display: block;
+    }
+
+    .option_field {
+        @include flexbox(null, space-between, center);
+        margin-top: 3rem;
+
+        .checkbox {
+            display: flex;
+            column-gap: 0.8rem;
+            white-space: nowrap;
+
+            input {
+                accent-color: $primary-color;
+            }
+
+            label {
+                @include typeface($links-span, null, $primary-color);
+
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+    }
+
+    a {
+        @include typeface($links-span, null, $secondary-color);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .form-btn {
+        @include size(100%, null);
+        margin-top: 3rem;
+    }
+
+    .login_signup {
+        @include typeface($links-span, null, $primary-color);
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+}

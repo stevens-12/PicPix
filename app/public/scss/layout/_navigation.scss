@@ -1,0 +1,212 @@
+// ===============================================================
+// Navbar styles
+//
+// This file styles the navbar, including its layout, responsiveness,
+// scrolling effects, logo display, links, and menu functionality.
+// ===============================================================
+
+.navbar {
+    // Overall navbar container
+    @include position(fixed, 0, null, null, 0);
+    @include size(100%, 8rem);
+    @include flexbox(null, null, center);
+
+    z-index: 10;
+    background: rgba(255, 255, 255, 0);
+
+    @include transition(all, 0.5s, ease);
+
+    // Scrolled state (opaque background)
+    &.scrolled {
+        background: rgba(255, 255, 255, 1);
+    }
+
+    // ------------------------------------------------
+    // Nav container
+    // ------------------------------------------------
+    .nav-container {
+        @include size(80%, null);
+        @include flexbox(row, space-between, null);
+        margin: 0 auto;
+
+        @include to(850px) {
+            width: 90%
+        }
+    }
+
+    // ------------------------------------------------
+    // Logo display
+    // ------------------------------------------------
+    .nav-imagotipo {
+        img {
+            @include size(9rem, 4.5rem);
+
+            @include to(850px) {
+                display: none;
+            }
+        }
+    }
+
+    .nav-isologo {
+        img {
+            @include size(4rem, 4rem);
+
+            @include from(850px) {
+                display: none;
+            }
+        }
+    }
+
+    // ------------------------------------------------
+    // Links container
+    // ------------------------------------------------
+    .links-container {
+        @include flexbox(row, null, center);
+
+        .links {
+            @include flexbox(row, null, null);
+            gap: 3rem;
+
+            @include to(850px) {
+                @include position(fixed, 0, -100%, null, null);
+                @include size(100%, 100vh);
+
+                padding-top: 6rem;
+                text-align: center;
+                background: $white-color;
+                display: block;
+                z-index: 10;
+
+                @include transition(null, 0.2s, ease);
+            }
+
+            li:last-child {
+                margin-right: 3rem;
+
+                @include to(850px) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    // ------------------------------------------------
+    // Links
+    // ------------------------------------------------
+    .links a {
+        position: relative;
+
+        @include typeface($tmd, 700, $primary-color);
+        @include transition(0.1s, ease);
+
+        @include to(850px) {
+            display: inline-flex;
+            margin: 2rem 0;
+            font-size: $tsm;
+        }
+
+        &::after {
+            content: "";
+            background-color: $secondary-color;
+
+            @include position(absolute, null, null, 0, 0);
+            @include size(0, 0.2rem);
+            @include transition(width, 0.3s);
+        }
+
+        &:hover {
+            color: $secondary-color;
+
+            @include to(850px) {
+                padding: 0.2rem
+            }
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    @include to(850px) {
+        .links.show-menu {
+            right: 0;
+        }
+    }
+
+    .menu-container {
+        @include to(850px) {
+            @include flexbox(row, null, center);
+        }
+    }
+
+    .close-btn,
+    .hamburger-btn {
+        display: none;
+        cursor: pointer;
+        @include typeface($ilg, null, $primary-color);
+        --ionicon-stroke-width: 55px;
+    }
+
+    .links .close-btn {
+        @include position(absolute, 3rem, 2.5rem, null, null);
+
+        @include from(580px) {
+            right: 3.5rem;
+        }
+
+        @include from(750px) {
+            right: 4rem;
+        }
+
+        @include to(850px) {
+            display: flex;
+        }
+    }
+
+    .nav-search-btn {
+        margin-right: 1rem;
+        @include typeface($tmd, null, inherit);
+
+        @include to(850px) {
+            font-size: $ism;
+            margin-right: 0;
+        }
+
+        // Icon styling
+        .nav-search-icon {
+            margin-right: 0.3rem;
+            @include typeface($ixs, null, inherit);
+            --ionicon-stroke-width: 70px;
+
+            @include to(850px) {
+                font-size: $ism;
+                margin-right: 0;
+            }
+
+            @include from(470px) {
+                font-size: 0;
+                display: none;
+            }
+        }
+
+        @include to(470px) {
+            margin: 0;
+            font-size: 0;
+            @include size(4rem, 4rem);
+        }
+    }
+
+    @include to(850px) {
+        .nav-login-btn {
+            font-size: $tsm;
+            margin: 0 1rem;
+        }
+    }
+
+    @include to(850px) {
+        :is(.hamburger-btn) {
+            display: flex;
+        }
+    }
+
+}

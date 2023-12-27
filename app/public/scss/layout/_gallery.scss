@@ -1,0 +1,129 @@
+// ===============================================================
+// Gallery styles
+//
+// This file styles the gallery section, including image display,
+// hover effects, and load more functionality.
+// ===============================================================
+.gallery {
+    // Overall layout
+    @include flexbox(column, null, center);
+
+    background-color: $white-color;
+
+    // ------------------------------------------------
+    // Image list
+    // ------------------------------------------------
+    .images {
+        max-width: 80%;
+        margin-top: 8rem;
+        columns: 5 28rem;
+        gap: 2rem;
+        list-style: none;
+
+        // Responsive adjustments
+        @include to(1024px) {
+            columns: 5 26rem;
+        }
+
+        @include to(850px) {
+            max-width: 90%;
+            margin-top: 4rem;
+            columns: 5 28rem;
+        }
+
+        img {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+    }
+
+    // ------------------------------------------------
+    // Image cards
+    // ------------------------------------------------
+    .card {
+        position: relative;
+        margin-bottom: 2rem;
+        cursor: pointer;
+        overflow: hidden;
+
+        // Image details
+        .details {
+            @include flexbox(null, space-between, center);
+            @include position(absolute, null, null, -10rem, null);
+
+            width: 100%;
+            padding: 2rem 2rem;
+
+            @include transition(bottom, 0.1s, ease);
+
+            z-index: 4;
+
+            // Responsive adjustments
+            @include to(1024px) {
+                bottom: 0;
+            }
+
+            // Photographer information
+            .photographer {
+                @include flexbox(null, space-between, center);
+                @include typeface(null, 400, $white-color);
+
+
+                ion-icon {
+                    margin-right: 1rem;
+                    font-size: $ism;
+                    --ionicon-stroke-width: 40px;
+
+                }
+
+                span {
+                    font-size: $tsm;
+                }
+            }
+
+            // Button styling
+            button ion-icon {
+                @include size(2rem, 2rem);
+                @include typeface($ism, null, $white-color);
+
+                --ionicon-stroke-width: 40px;
+                border: 0.2rem solid $white-color;
+                padding: 0.4rem;
+            }
+        }
+
+        // Button styling (applicable to both buttons and icons within details)
+        button,
+        i {
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            border-radius: 0.8rem;
+
+            @include transition(null, 0.2s, ease)
+        }
+    }
+
+    .images li:hover .details {
+        bottom: 0;
+    }
+
+    .load-more {
+        @include size(auto, auto);
+        margin: 5rem 0;
+        padding: 1.2rem 2.4rem;
+
+        // Responsive adjustments
+        @include to(850px) {
+            font-size: $tsm;
+        }
+
+        .disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    }
+}

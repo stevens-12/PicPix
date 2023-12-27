@@ -1,0 +1,53 @@
+// ===============================================================
+// Base styles
+//
+// This file sets the base styles for the project, including
+// typography, resets, link styles, list styles, and heading styles.
+// ===============================================================
+
+// ------------------------------------------------
+// Import fonts
+// ------------------------------------------------
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@200;400;600;700&family=Mulish:wght@200;400;600;700;800;900&display=swap");
+
+// ------------------------------------------------
+// Global styles
+// ------------------------------------------------
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $primary-font;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+// ------------------------------------------------
+// Links
+// ------------------------------------------------
+a {
+    color: $primary-color;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+// ------------------------------------------------
+// Lists
+// ------------------------------------------------
+ul,
+ol {
+    list-style: none;
+}
+
+// ------------------------------------------------
+// Headings
+// ------------------------------------------------
+h1 {
+    @include typeface($h1, 700, $primary-color);
+    font-family: $title-font
+}
+
+h3 {
+    @include typeface ($h3, 700, $primary-color);
+    font-family: $title-font
+}

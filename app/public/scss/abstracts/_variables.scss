@@ -1,0 +1,76 @@
+// ===============================================================
+// Typography and color variables
+//
+// This file defines the project's global typography and
+// color variables. These variables can be used throughout
+// the stylesheets to maintain consistency and make
+// adjustments easier.
+// ===============================================================
+
+// ------------------------------------------------
+// Typography variables
+// ------------------------------------------------
+$primary-font: "Mulish", sans-serif;    // Primary font for text content
+$title-font: "Arima", sans-serif;       // Font for titles and headings
+
+// ------------------------------------------------
+// Font size variables
+// ------------------------------------------------
+
+// ---------------
+// Headings
+// ---------------
+$h1: 8rem;      // Largest heading
+$h2: 4rem;      // Medium heading
+$h3: 2.4rem;    // Small heading
+
+// ---------------
+// Text content
+// ---------------
+$tlg: 2rem;     // Large text
+$tmd: 1.8rem;   // Medium text
+$tsm: 1.6rem;   // Small text
+
+// ---------------
+// Spans
+// ---------------
+$links-span: 1.4rem;    // Font size for links
+
+// ---------------
+// Icons
+// ---------------
+$ilg: 2.4rem;   // Large icons
+$im: 2rem;      // Medium icons
+$imd: 1.8rem;   // Medium-small icons
+$ism: 1.6rem;   // Small icons
+$ixs: 1.4rem;   // X small icons
+
+// ------------------------------------------------
+// Color variables
+// ------------------------------------------------
+
+// ---------------
+// Brand colors
+// ---------------
+$primary-color: #112d4e;    // Primary brand color
+$secondary-color: #1d4e89;  // Secondary brand color
+$third-color: #dbe2ef;      // Third brand color
+
+// -------------
+// Accent colors
+// -------------
+$accent-yellow-color: #e8a84a;  // Optional accent yellow color
+$accent-blue-color: #d0e3ef;    // Optional accent blue color
+
+// ---------------
+// Grayscale
+// ---------------
+$gray-light: #dee2e6;   // Light shade of gray
+$gray-medium: #adb5bd;  // Medium shade of gray
+$gray-dark: #495057;    // Dark shade of gray
+
+// ---------------
+// Basic colors
+// ---------------
+$black-color: #000000;  // Black color
+$white-color: #ffffff;  // White color

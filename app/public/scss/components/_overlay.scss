@@ -1,0 +1,28 @@
+// ===============================================================
+// Blurred background overlay styles
+//
+// This file styles the blurred background overlay used for popups.
+// ===============================================================
+.blur-bg-overlay {
+    // Positioning and dimensions
+    @include position(fixed, 0, null, null, 0);
+    @include size(100%, 100%);
+
+    // Visual properties
+    z-index: 101;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+
+    // Transition for smooth appearance
+    @include transition(0.1s, ease);
+}
+
+// -----------------------------------------------
+// Visibility and interactivity on popup display
+// -----------------------------------------------
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}

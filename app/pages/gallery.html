@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/app/assets/isotipo-2-ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="/app/public/css/main.css">
+
+    <script script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"> </script>
+    <script script nomodule src="https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js"> </script>
+    <script type="module" src="/app/public/modules/main.js" defer></script>
+
+    <title>PicPix</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="header-container">
+        <nav id="nav" class="navbar">
+            <div class="nav-container">
+                <div>
+                    <a href="#" class="nav-imagotipo">
+                        <img src="/app/assets/imagotipo-1.png" alt="logo">
+                    </a>
+                    <a href="#" class="nav-isologo">
+                        <img src="/app/assets/isologo-1.png" alt="logo">
+                    </a>
+                </div>
+                <div class="links-container">
+                    <ul class="links">
+                        <ion-icon name="close-outline" class="close-btn"></ion-icon>
+                        <li><a href="#view-gallery">Explore</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Upload</a></li>
+                    </ul>
+                    <div class="menu-container">
+                        <button class="btn nav-search-btn">
+                            <ion-icon name="search-outline" class="nav-search-icon"></ion-icon>
+                            Search
+                        </button>
+                        <button class="btn nav-login-btn" id="form-open">Log in</button>
+                        <ion-icon name="menu-outline" class="hamburger-btn"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="blur-bg-overlay"></div>
+        <section class="modal_form">
+            <div class="form_container">
+                <ion-icon name="close-outline" class="form_close"></ion-icon>
+                <!-- Login Form -->
+                <div class="form login_form">
+                    <form action="#">
+                        <h3>Log in</h3>
+                        <div class="input_box">
+                            <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email"
+                                required />
+                                <small id="loginEmailError" class="error-message"></small>
+                            <ion-icon name="mail-outline" class="email"></ion-icon>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" id="loginPassword" name="loginPassword"
+                                placeholder="Enter your password" required />
+                                <small id="loginPasswordError" class="error-message"></small>
+                            <ion-icon name="lock-closed-outline" class="password"></ion-icon>
+                            <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
+                        </div>
+                        <div class="option_field">
+                            <span class="checkbox">
+                                <input type="checkbox" id="check" />
+                                <label for="check">Remember me</label>
+                            </span>
+                            <a href="#" class="forgot_pw">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn form-btn">Log in Now</button>
+                        <div class="login_signup">Don't have an account? <a href="#" id="signup"> Sign up</a></div>
+                    </form>
+                </div>
+                <!-- Sign up Form -->
+                <div class="form signup_form">
+                    <form action="#">
+                        <h3>Sign up</h3>
+                        <div class="input_box">
+                            <input type="email" id="signupEmail" name="signupEmail" placeholder="Enter your email"
+                                required />
+                                <small id="loginEmailError" class="error-message"></small>
+                            <ion-icon name="mail-outline" class="email"></ion-icon>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" id="signupPassword" name="signupPassword"
+                                placeholder="Create password" required />
+                                <small id="loginPasswordError" class="error-message"></small>
+                            <ion-icon name="lock-closed-outline" class="password"></ion-icon>
+                            <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Confirm password" required />
+                                <small id="loginPasswordError" class="error-message"></small>
+                            <ion-icon name="lock-closed-outline" class="password"></ion-icon>
+                            <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
+                        </div>
+                        <button type="submit" class="btn form-btn">Sign up Now</button>
+                        <div class="login_signup">Already have an account? <a href="#" id="login">Log in</a></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Search bar & Title -->
+        <section class="search">
+            <div class="content">
+                <h1>PicPix</h1>
+                <h3>Unleash Your Imagination with a Click</h3>
+                <div class="search-box">
+                    <ion-icon name="search-outline" class="search-icon"></ion-icon>
+                    <input id="search-engine" type="text" placeholder="Search images">
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+        <!-- Image board -->
+        <section class="gallery" id="view-gallery">
+            <ul class="images"></ul>
+            <button class="btn load-more">Load More</button>
+        </section>
+        <!-- Modal image window or preview image -->
+        <div class="lightbox">
+            <div class="wrapper">
+                <header>
+                    <div class="photographer">
+                        <ion-icon name="camera-outline"></ion-icon>
+                        <span></span>
+                    </div>
+                    <div class="wrapper-btn">
+                        <ion-icon name="cloud-download-outline" class="btn icon-download"></ion-icon>
+                        <ion-icon name="close-outline" class="btn close-icon"></ion-icon>
+                    </div>
+                </header>
+                <div class="preview-img">
+                    <div class="img"><img src="" alt="preview-img"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

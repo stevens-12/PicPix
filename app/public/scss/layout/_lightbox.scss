@@ -1,0 +1,122 @@
+// ===============================================================
+// Lightbox styles
+//
+// This file styles the lightbox element, which provides a focused
+// view of individual images.
+// ===============================================================
+
+.lightbox {
+    // Overall lightbox container
+    @include position(fixed, 0, null, null, 0);
+    @include size(100%, 100%);
+    z-index: 5;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.65);
+
+    // Visible state
+    &.show {
+        visibility: visible;
+
+        .wrapper {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
+    // ------------------------------------------------
+    // Image wrapper
+    // ------------------------------------------------
+    .wrapper {
+        @include position(fixed, 55%, null, null, 50%);
+        @include size(100%, null);
+
+        max-width: 85rem;
+        padding: 2rem;
+        background: $white-color;
+        border-radius: 1.6rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(0.9);
+
+        @include transition(null, 0.1s, ease);
+
+        // Responsive adjustments
+        @include to(1024px) {
+            max-width: calc(100% - 20rem);
+        }
+
+        @include to(850px) {
+            max-width: calc(100% - 8.5rem);
+        }
+
+        @include to(470px) {
+            max-width: calc(100% - 3.5rem);
+        }
+
+        // ------------------------------------------------
+        // Header
+        // ------------------------------------------------
+        header {
+            @include flexbox(null, space-between, center);
+
+            .photographer {
+                color: $primary-color;
+                @include flexbox(null, space-between, center);
+
+                ion-icon {
+                    margin-right: 1rem;
+                    font-size: $ism;
+                    --ionicon-stroke-width: 40px;
+                    cursor: auto;
+                }
+
+                span {
+                    font-size: $tsm;
+                }
+            }
+
+            .wrapper-btn {
+                @include flexbox(null, space-between, center);
+
+                ion-icon {
+                    @include size(2rem, 2rem);
+                    @include typeface($ixs, null, $primary-color);
+
+                    --ionicon-stroke-width: 40px;
+                    padding: 0.8rem;
+
+                    &:hover {
+                        color: $white-color;
+                    }
+
+                    &:last-child {
+                        margin-left: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        // ------------------------------------------------
+        // Image preview
+        // ------------------------------------------------
+        .preview-img {
+            @include flexbox(null, center, null);
+            margin-top: 2rem;
+
+            @include to(850px) {
+                margin-top: 1rem;
+            }
+
+            .img {
+                max-height: 65vh;
+            }
+
+            img {
+                @include size(100%, 100%);
+
+                object-fit: contain;
+            }
+        }
+    }
+}

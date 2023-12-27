@@ -1,0 +1,47 @@
+// ===============================================================
+// This file contains the import rules for the project's
+// stylesheets.
+// ===============================================================
+
+// 1. Configuration and helpers
+//
+// The `variables` file defines the project's global variables,
+// such as colors, fonts, and sizes. The `mixins` file
+// defines reusable CSS functions that can be used to
+// apply common styles.
+@import
+'abstracts/variables',
+'abstracts/mixins';
+
+// 2. Base styles
+//
+// The `reset` file resets the default browser styles.
+@import
+'base/reset';
+
+// 3. Layout
+//
+// The `navigation` file styles the navigation bar.
+// The `forms` file styles the Login and Sing up forms.
+// The `search` file styles the search bar.
+// The `gallery` file styles the gallery images.
+// The `lightbox` file styles the lightbox modal image.
+@import
+'layout/navigation',
+'layout/forms',
+'layout/search',
+'layout/gallery',
+'layout/lightbox';
+
+// 4. Components
+//
+// The `buttons` file styles the buttons.
+// The `overlay` file styles the overlay.
+@import
+'components/buttons',
+'components/overlay';
+
+// 5. Pages
+//
+// The `pages` folder contains the stylesheets for
+// each page in the project
