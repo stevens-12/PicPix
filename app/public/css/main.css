@@ -20,7 +20,7 @@ ol {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 7rem;
   font-weight: 700;
   color: #112d4e;
   font-family: "Arima", sans-serif;
@@ -33,6 +33,118 @@ h3 {
   font-family: "Arima", sans-serif;
 }
 
+.home {
+  background-color: #dbe2ef;
+  padding: 2rem 0 2rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  max-width: 80%;
+  flex: 1 0 50%;
+}
+@media (max-width: 850px) {
+  .home__container {
+    max-width: 90%;
+    height: 30rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.home__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+@media (max-width: 850px) {
+  .home__data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 470px) {
+  .home__title {
+    font-size: 5rem;
+  }
+}
+.home__paragraph {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #112d4e;
+  width: 45rem;
+  height: auto;
+  text-align: justify;
+}
+@media (max-width: 850px) {
+  .home__paragraph {
+    display: none;
+  }
+}
+.home__paragraph_2 {
+  display: none;
+}
+@media (max-width: 850px) {
+  .home__paragraph_2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #112d4e;
+    display: flex;
+    text-align: center;
+  }
+}
+.home__button {
+  margin-top: 4rem;
+  display: block;
+  padding: 1.2rem 2.4rem;
+}
+@media (max-width: 850px) {
+  .home__button {
+    padding: 1rem 1.6rem;
+  }
+}
+@media (max-width: 850px) {
+  .home__img {
+    width: -moz-min-content;
+    width: min-content;
+    margin-top: 4rem;
+    margin-left: 0;
+  }
+}
+.home__img img {
+  width: 100%;
+  min-width: 20rem;
+  animation: float 1.8s infinite alternate;
+}
+@media (max-width: 850px) {
+  .home__img img {
+    width: 60%;
+    min-width: 15rem;
+  }
+}
+.home__footer {
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  font-size: 1.8rem;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(15px);
+  }
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -190,6 +302,8 @@ h3 {
   margin-right: 1rem;
   font-size: 1.8rem;
   color: inherit;
+  width: 8rem;
+  height: 4rem;
 }
 @media (max-width: 850px) {
   .navbar .nav-search-btn {
@@ -222,6 +336,10 @@ h3 {
     width: 4rem;
     height: 4rem;
   }
+}
+.navbar .nav-login-btn {
+  width: 8rem;
+  height: 4rem;
 }
 @media (max-width: 850px) {
   .navbar .nav-login-btn {
@@ -322,16 +440,6 @@ h3 {
 .modal_form .input_box input:focus ~ ion-icon.password {
   color: #112d4e;
 }
-.modal_form .error-message {
-  color: red;
-  display: none;
-  position: absolute;
-  font-size: x-small;
-  margin-top: 0.4rem;
-}
-.modal_form .input_box.has-error .error-message {
-  display: block;
-}
 .modal_form .option_field {
   display: flex;
   justify-content: space-between;
@@ -364,6 +472,7 @@ h3 {
 }
 .modal_form .form-btn {
   width: 100%;
+  height: 4rem;
   margin-top: 3rem;
 }
 .modal_form .login_signup {
@@ -659,8 +768,10 @@ h3 {
   font-size: 1.8rem;
   font-weight: 700;
   color: #112d4e;
-  width: 8rem;
-  height: 4rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   border: 0.2rem solid #112d4e;
   background: transparent;
   border-radius: 0.8rem;

@@ -166,6 +166,7 @@
     .nav-search-btn {
         margin-right: 1rem;
         @include typeface($tmd, null, inherit);
+        @include size(8rem, 4rem);
 
         @include to(850px) {
             font-size: $ism;
@@ -196,10 +197,12 @@
         }
     }
 
-    @include to(850px) {
-        .nav-login-btn {
-            font-size: $tsm;
-            margin: 0 1rem;
+    .nav-login-btn {
+        @include size(8rem, 4rem);
+
+        @include to(850px) {
+                font-size: $tsm;
+                margin: 0 1rem;
         }
     }
 

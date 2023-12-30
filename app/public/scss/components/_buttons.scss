@@ -6,7 +6,7 @@
 .btn {
     // Basic styles
     @include typeface($tmd, 700, $primary-color);
-    @include size(8rem, 4rem);
+    @include size(fit-content, fit-content);
 
     // padding: 0.9rem 1rem;
     border: 0.2rem solid $primary-color;

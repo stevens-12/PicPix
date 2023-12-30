@@ -118,18 +118,6 @@
         }
     }
 
-    .error-message {
-        color: red;
-        display: none;
-        position: absolute;
-        font-size: x-small;
-        margin-top: 0.4rem;
-    }
-
-    .input_box.has-error .error-message {
-        display: block;
-    }
-
     .option_field {
         @include flexbox(null, space-between, center);
         margin-top: 3rem;
@@ -161,7 +149,7 @@
     }
 
     .form-btn {
-        @include size(100%, null);
+        @include size(100%, 4rem);
         margin-top: 3rem;
     }
 

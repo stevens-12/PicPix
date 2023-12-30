@@ -27,15 +27,11 @@
                 <div class="links-container">
                     <ul class="links">
                         <ion-icon name="close-outline" class="close-btn"></ion-icon>
-                        <li><a href="#view-gallery">Explore</a></li>
-                        <li><a href="#">Collections</a></li>
-                        <li><a href="#">Upload</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                     <div class="menu-container">
-                        <button class="btn nav-search-btn">
-                            <ion-icon name="search-outline" class="nav-search-icon"></ion-icon>
-                            Search
-                        </button>
                         <button class="btn nav-login-btn" id="form-open">Log in</button>
                         <ion-icon name="menu-outline" class="hamburger-btn"></ion-icon>
                     </div>
@@ -53,13 +49,13 @@
                         <div class="input_box">
                             <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email"
                                 required />
-                                <small id="loginEmailError" class="error-message"></small>
+                            <small id="loginEmailError" class="error-message"></small>
                             <ion-icon name="mail-outline" class="email"></ion-icon>
                         </div>
                         <div class="input_box">
                             <input type="password" id="loginPassword" name="loginPassword"
                                 placeholder="Enter your password" required />
-                                <small id="loginPasswordError" class="error-message"></small>
+                            <small id="loginPasswordError" class="error-message"></small>
                             <ion-icon name="lock-closed-outline" class="password"></ion-icon>
                             <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
                         </div>
@@ -81,20 +77,20 @@
                         <div class="input_box">
                             <input type="email" id="signupEmail" name="signupEmail" placeholder="Enter your email"
                                 required />
-                                <small id="loginEmailError" class="error-message"></small>
+                            <small id="loginEmailError" class="error-message"></small>
                             <ion-icon name="mail-outline" class="email"></ion-icon>
                         </div>
                         <div class="input_box">
                             <input type="password" id="signupPassword" name="signupPassword"
                                 placeholder="Create password" required />
-                                <small id="loginPasswordError" class="error-message"></small>
+                            <small id="loginPasswordError" class="error-message"></small>
                             <ion-icon name="lock-closed-outline" class="password"></ion-icon>
                             <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
                         </div>
                         <div class="input_box">
                             <input type="password" id="confirmPassword" name="confirmPassword"
                                 placeholder="Confirm password" required />
-                                <small id="loginPasswordError" class="error-message"></small>
+                            <small id="loginPasswordError" class="error-message"></small>
                             <ion-icon name="lock-closed-outline" class="password"></ion-icon>
                             <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
                         </div>
@@ -104,48 +100,46 @@
                 </div>
             </div>
         </section>
-        <!-- Search bar & Title -->
-        <section class="search">
-            <div class="content">
-                <h1>PicPix</h1>
-                <h3>Unleash Your Imagination with a Click</h3>
-                <div class="search-box">
-                    <ion-icon name="search-outline" class="search-icon"></ion-icon>
-                    <input id="search-engine" type="text" placeholder="Search images">
-                </div>
-            </div>
-        </section>
     </header>
-    <main>
-        <!-- Image board -->
-        <section class="gallery" id="view-gallery">
-            <ul class="images"></ul>
-            <button class="btn load-more">Load More</button>
-        </section>
-        <!-- Modal image window or preview image -->
-        <div class="lightbox">
-            <div class="wrapper">
-                <header>
-                    <div class="photographer">
-                        <ion-icon name="camera-outline"></ion-icon>
-                        <span></span>
-                    </div>
-                    <div class="wrapper-btn">
-                        <ion-icon name="cloud-download-outline" class="btn icon-download"></ion-icon>
-                        <ion-icon name="close-outline" class="btn close-icon"></ion-icon>
-                    </div>
-                </header>
-                <div class="preview-img">
-                    <div class="img"><img src="" alt="preview-img"></div>
+    <main class="main">
+        <!--HOME-->
+        <section class="home">
+            <div class="home__container container">
+
+                <div class="home__data">
+                    <h3 class="home__subtitle">PicPix</h3>
+                    <h1 class="home__title">MASTERPIECE</h1>
+                    <p class="home__paragraph">Explore the art of digital photography,
+                        from nature to architecture to portraiture to landscape.
+                        Each image is a testament to the beauty of the world and human creativity.
+                        Discover masterpieces with every click.
+                        Do you dare to discover what the next one will be?"...
+                    </p>
+                    <p class="home__paragraph_2">Do you dare to discover what will be the next masterpiece?"...</p>
+
+                    <a href="./gallery.html" class="btn home__button">
+                        View Gallery
+                    </a>
+                </div>
+
+                <div class="home__img">
+                    <img src="/app/assets/isotipo-1.png">
                 </div>
             </div>
-        </div>
+            <!--FOOTER-->
+            <footer class="home__footer">
+                <span>PicPix</span>
+                <span>|</span>
+                <span>Bryan Mora</span>
+            </footer>
+        </section>
     </main>
 
+    <script type="module" src="/app/public/modules/home.js" defer></script>
     <script script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"> </script>
     <script script nomodule src="https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js"> </script>
-    <script type="module" src="/app/public/modules/gallery.js" defer></script>
-    
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
 </body>
 
 </html>
