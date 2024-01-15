@@ -1,161 +1,328 @@
 // ===============================================================
 // Modal form styles
 //
-// This file styles the modal form used for login and signup.
+// This file styles the modal form used for login and sign up.
 // ===============================================================
-.modal_form {
-    position: relative;
+.modal-form {
+    @include position(fixed, 50%, null, null, 50%);
+    @include size(76.8rem, null);
 
-    // ------------------------------------------------
-    // Form container
-    // ------------------------------------------------
-    .form_container {
-        // Positioning and dimensions
-        @include position(fixed, 50%, null, null, 50%);
-        @include size(100%, null);
+    max-width: 100%;
+    min-height: 48rem;
+    background-color: white;
+    border-radius: 1.6rem;
+    box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25), 0 1rem 1rem rgba(0, 0, 0, 0.22);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 101;
+    pointer-events: auto;
+    overflow: hidden;
 
-        // Appearance
-        max-width: 32rem;
-        transform: translate(-50%, -50%) scale(1.2);
-        z-index: 101;
-        background-color: $white-color;
-        padding: 2.4rem;
-        border-radius: 1.6rem;
-        pointer-events: none;
-        opacity: 0;
-        box-shadow: 0 0 1rem $primary-color;
+    transform: translate(-50%, -50%) scale(0.4);
+    @include transition(all, 0.4s, ease-in-out);
 
-        // Transition for smooth appearance
-        @include transition(all, 0.4s, ease-out);
-
-        // Form switching (login vs. signup)
-        &.active .login_form {
-            display: none;
-        }
-
-        &.active .signup_form {
-            display: block;
-        }
+    @include to(850px) {
+        max-width: 90%;
     }
 
-    // ------------------------------------------------
-    // Visible and interactive state
-    // ------------------------------------------------
-    &.show .form_container {
+    &.show {
         opacity: 1;
-        pointer-events: auto;
+        visibility: visible;
         transform: translate(-50%, -50%) scale(1);
     }
 
-    // ------------------------------------------------
-    // Signup form (initially hidden)
-    // ------------------------------------------------
-    .signup_form {
-        display: none;
+    .form-close {
+        @include position(absolute, 2rem, 2rem, null, null);
+        @include typeface($im, 700, $white-color);
+
+        --ionicon-stroke-width: 7rem;
+        z-index: 110;
+        cursor: pointer;
+
+        @include transition(color, 0.6s, ease-in-out);
     }
 
-    // ------------------------------------------------
-    // Form elements
-    // ------------------------------------------------
-    .form_close {
-        @include position(absolute, 2rem, 2rem, null, null);
-        @include typeface($im, null, $primary-color);
-        --ionicon-stroke-width: 70px;
-        cursor: pointer;
+    &.right-panel-active .form-close {
+        color: $primary-color;
+    }
+
+    .form-container {
+        @include position(absolute, 0, null, null, null);
+        height: 100%;
+
+        @include transition(all, 0.6s, ease-in-out);
+    }
+
+    .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    &.right-panel-active .sign-up-container {
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+        transform: translateX(100%);
+    }
+
+    form {
+        @include flexbox(column, center, center);
+        background-color: $white-color;
+        padding: 0 5rem;
+        height: 100%;
+        text-align: center;
+
+        @include to(850px) {
+            padding: 0 3rem;
+        }
+
+        @include to(470px) {
+            padding: 0 1rem;
+        }
+    }
+
+    .social-container {
+        margin: 2rem 0;
+
+        @include to(850px) {
+            margin: 1rem 0;
+        }
+    }
+
+    .social-container a {
+        @include flexbox(row, center, center);
+        @include size(4rem, 4rem);
+
+        display: inline-flex;
+        border: 0.1rem solid $gray-light;
+        border-radius: 50%;
+        margin: 0 0.5rem;
+
+        ion-icon {
+            font-size: $ism;
+        }
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $white-color;
+        }
+
+        @include to(850px) {
+            margin: 0 0.3rem;
+        }
+
+        @include to(470px) {
+            @include size(3rem, 3rem);
+            margin: 0 0.1rem;
+        }
     }
 
     h3 {
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-    .input_box {
-        @include size(100%, 4rem);
-
-        position: relative;
-        margin-top: 3rem;
-
-        input {
-            @include size(100%, 100%);
-            @include typeface($tsm, null, $primary-color);
-
-            border: none;
-            outline: none;
-            padding: 0 3rem;
-            background-color: $white-color;
-            border-bottom: 0.2rem solid $gray-medium;
-
-            @include transition(all, 0.4s, ease);
-
-            &:focus {
-                border-color: var(--brand-primary-color);
-            }
-        }
-
-        ion-icon {
-            @include position(absolute, 50%, null, null, null);
-            @include typeface($ism, null, $gray-medium);
-            --ionicon-stroke-width: 40px;
-
-
-            transform: translateY(-50%);
-
-            &.email,
-            &.password {
-                left: 0;
-            }
-
-            &.pw_hide {
-                right: 0;
-                font-size: $ism;
-                cursor: pointer;
-            }
-        }
-
-        input:focus~ion-icon.email,
-        input:focus~ion-icon.password {
-            color: $primary-color;
-        }
-    }
-
-    .option_field {
-        @include flexbox(null, space-between, center);
-        margin-top: 3rem;
-
-        .checkbox {
-            display: flex;
-            column-gap: 0.8rem;
-            white-space: nowrap;
-
-            input {
-                accent-color: $primary-color;
-            }
-
-            label {
-                @include typeface($links-span, null, $primary-color);
-
-                cursor: pointer;
-                user-select: none;
-            }
+        @include to(470px) {
+            font-size: $tlg;
         }
     }
 
     a {
-        @include typeface($links-span, null, $secondary-color);
+        @include typeface($links-span, 400, $primary-color);
+        margin: 1.5rem 0;
 
-        &:hover {
-            text-decoration: underline;
+        @include to(470px) {
+            font-size: $spm;
+            letter-spacing: -0.06rem;
+            margin-top: 0;
         }
     }
 
-    .form-btn {
-        @include size(100%, 4rem);
-        margin-top: 3rem;
+    span {
+        @include typeface($links-span, 400, $primary-color);
+
+        @include to(470px) {
+            font-size: $spm;
+        }
     }
 
-    .login_signup {
-        @include typeface($links-span, null, $primary-color);
+    input {
+        @include typeface($links-span, 400, null);
+
+        background-color: $gray-light;
+        border: none;
+        border-radius: 0.8rem;
+        padding: 1.2rem 1.5rem;
+        margin: 0.8rem 0;
+        width: 100%;
+
+        @include to(850px) {
+            width: 90%;
+        }
+
+        @include to(470px) {
+            font-size: $spm;
+            padding: 1.2rem 0.8rem;
+        }
+    }
+
+    .input-password {
+        position: relative;
+        width: 100%;
+
+        ion-icon {
+            position: absolute;
+            padding: 0 1.5rem;
+            font-size: 1.4rem;
+            top: 50%;
+            transform: translateY(-50%);
+
+            &.eye {
+                right: 0;
+                cursor: pointer;
+            }
+
+            @include to(850px) {
+                padding: 0 2.2rem;
+            }
+
+            @include to(470px) {
+                padding: 0 1.6rem;
+                font-size: $spm;
+            }
+        }
+    }
+
+    .btn {
+        @include size(80%, 4rem);
+
+        &.btn-sign-up {
+            margin-top: 2rem;
+
+            @include to(850px) {
+                margin-top: 0.5rem;
+            }
+        }
+
+        @include to(470px) {
+            font-size: $tsm;
+        }
+    }
+
+    .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+    }
+
+    &.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+    }
+
+    @keyframes show {
+
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+
+    .overlay-container {
+        @include position(absolute, 0, null, null, 50%);
+        @include size(50%, 100%);
+
+        overflow: hidden;
+        z-index: 100;
+
+        @include transition(transform, 0.6s, ease-in-out);
+    }
+
+    &.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+    }
+
+    .overlay {
+        @include position(relative, null, null, null, -100%);
+        @include background-gradient;
+        @include size(200%, 100%);
+
+
+        transform: translateX(0);
+        @include transition(transform, 0.6s, ease-in-out);
+
+        h3 {
+            color: $white-color;
+        }
+
+        p {
+            @include typeface($tsm, 600, $white-color);
+            letter-spacing: 0.04rem;
+            margin: 2rem 0 3rem;
+
+            @include to(470px) {
+                font-size: $links-span;
+                letter-spacing: 0;
+            }
+        }
+
+        .btn {
+            color: $white-color;
+            border: 0.2rem solid $white-color;
+
+            &:hover {
+                border: 0.2rem solid $primary-color;
+                background-color: $accent-orange-color;
+                color: $primary-color;
+                box-shadow: 0 0.2rem 0.4rem 0 $accent-orange-color,
+                    0.2rem 0.4rem 0 $accent-orange-color;
+            }
+        }
+    }
+
+    &.right-panel-active .overlay {
+        transform: translateX(50%);
+    }
+
+    .overlay-panel {
+        @include flexbox(column, center, center);
+        @include position(absolute, 0, null, null, null);
+        @include size(50%, 100%);
+
+
+        padding: 0 4rem;
         text-align: center;
-        margin-top: 1.5rem;
+        transform: translateX(0);
+
+        @include transition(transform, 0.6s, ease-in-out);
+
+        @include to(850px) {
+            padding: 0 3rem;
+        }
+
+        @include to(470px) {
+            padding: 0 1rem;
+        }
+    }
+
+    .overlay-left {
+        transform: translateX(-20%);
+    }
+
+    &.right-panel-active .overlay-left {
+        transform: translateX(0);
+    }
+
+    .overlay-right {
+        right: 0;
+        transform: translateX(0);
+    }
+
+    &.right-panel-active .overlay-right {
+        transform: translateX(20%);
     }
 }

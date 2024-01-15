@@ -1,27 +1,13 @@
 // Navbar functions
 import {
     handleScrollEvents,
-    scrollAndFocus,
-    mobileMenu
+    mobileMenu,
+    moveSearchInputOnScroll
 } from './navbar.js';
-
-const searchButton = document.querySelector('.nav-search-btn');
-searchButton.addEventListener('click', () => {
-    scrollAndFocus('search-engine');
-});
 
 handleScrollEvents();
 mobileMenu();
-
-
-// Forms functions
-import {
-    initializeForm,
-} from './forms.js'
-
-initializeForm();
-
-
+moveSearchInputOnScroll();
 
 // Gallery functions
 import {

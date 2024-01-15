@@ -1,8 +1,4 @@
 // Selectors
-const nav = document.querySelector("nav");
-const navbar = document.getElementById('nav');
-const section2 = document.getElementById('search-engine');
-const inputSearch = document.getElementById('search-engine');
 const navbarMenu = document.querySelector(".navbar .links");
 const hamburgerBtn = document.querySelector(".hamburger-btn");
 const hideMenuBtn = navbarMenu.querySelector(".close-btn");
@@ -10,39 +6,45 @@ const menuLinks = document.querySelectorAll('.links a');
 
 // Function to move the navigation bar according to scrolling
 export function handleScrollEvents() {
-    let locationMain = window.scrollY;
-    const nav = document.querySelector("nav");
-    const navbar = document.getElementById('nav');
+    const nav = document.querySelector(".navbar");
 
     window.addEventListener("scroll", () => {
         let scrollingCurrent = window.scrollY;
-
-        if (locationMain >= scrollingCurrent) {
-            nav.style.top = "0px";
-        } else {
-            nav.style.top = "-80px";
+        if (scrollingCurrent > 80 && scrollingCurrent <= 500) {
+            nav.classList.remove("fixed");
+        } else if (scrollingCurrent >= 500) {
+            nav.classList.add("fixed");
         }
-
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        locationMain = scrollingCurrent;
     });
 }
 
-// Navigation navbar button to activate and redirect to search input.
-export function scrollAndFocus() {
-    try {
-        if (section2 && inputSearch) {
-            section2.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            inputSearch.focus();
+export function moveSearchInputOnScroll() {
+    var searchInput = document.getElementsByClassName('search-box')[0];
+    var navbar = document.getElementsByClassName('search-navbar')[0];
+    var originalParent = searchInput.parentNode;
+    var threshold = 500; // Define the scroll position at which the search input should be moved
+    var margin = 1; // Define a small margin
+
+    window.addEventListener('scroll', function () {
+        var currentScrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+
+        if (currentScrollPosition >= threshold + margin && !navbar.contains(searchInput)) {
+            if (originalParent.contains(searchInput)) {
+                originalParent.removeChild(searchInput);
+            }
+            navbar.insertBefore(searchInput, navbar.firstChild);
+        } else if (currentScrollPosition < threshold - margin && originalParent.contains(searchInput)) {
+            if (navbar.contains(searchInput)) {
+                navbar.removeChild(searchInput);
+            }
+            originalParent.appendChild(searchInput);
+        } else if (currentScrollPosition < threshold + margin && !originalParent.contains(searchInput)) {
+            if (navbar.contains(searchInput)) {
+                navbar.removeChild(searchInput);
+            }
+            originalParent.appendChild(searchInput);
         }
-    } catch (error) {
-        console.error(error);
-    }
+    });
 }
 
 // Function to control the hamburger menu

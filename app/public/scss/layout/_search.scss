@@ -51,12 +51,14 @@
     // ------------------------------------------------
     .content {
         @include size(70rem, null);
-
-        position: relative;
         color: $primary-color;
         padding: 0 2rem;
         text-align: center;
-        z-index: 2;
+
+        h1, h3 {
+            position: relative;
+            z-index: 2;
+        }
 
         h3 {
             margin-bottom: 4rem;
@@ -68,6 +70,7 @@
         .search-box {
             height: 5.5rem;
             position: relative;
+            z-index: 2;
 
             .search-icon {
                 @include position(absolute, 50%, null, null, 2rem);
@@ -81,7 +84,7 @@
 
             input {
                 @include size(100%, 100%);
-                @include typeface($tlg, 600, $primary-color);
+                @include typeface($tlg, 700, $primary-color);
 
                 outline: none;
                 border: none;

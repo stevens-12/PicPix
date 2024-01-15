@@ -61,6 +61,15 @@
     left: $left;
 }
 
+
+@mixin background-gradient {
+    background-color: #112d4e;
+    background-image: linear-gradient(180deg, #112d4e 0%, #1d4e89 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+}
+
 // --------------------------------------------------
 // @mixin transition($property: all, $duration: 0.5s, $state: ease)
 // --------------------------------------------------

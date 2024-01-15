@@ -18,9 +18,9 @@
 
     // Hover state
     &:hover {
-        border: 0.2rem solid $third-color;
+        border: 0.2rem solid $white-color;
         background-color: $secondary-color;
-        color: $third-color;
+        color: $white-color;
         box-shadow: 0 0.2rem 0.4rem 0 $secondary-color,
             0.2rem 0.4rem 0 $secondary-color;
         transform: translateY(-0.2rem);

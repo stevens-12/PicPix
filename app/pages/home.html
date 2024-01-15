@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/app/assets/isotipo-2-ico.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/app/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/app/public/css/main.css">
 
     <title>PicPix</title>
@@ -17,9 +17,6 @@
         <nav id="nav" class="navbar">
             <div class="nav-container">
                 <div>
-                    <a href="#" class="nav-imagotipo">
-                        <img src="/app/assets/imagotipo-1.png" alt="logo">
-                    </a>
                     <a href="#" class="nav-isologo">
                         <img src="/app/assets/isologo-1.png" alt="logo">
                     </a>
@@ -32,74 +29,67 @@
                         <li><a href="#">Contact</a></li>
                     </ul>
                     <div class="menu-container">
-                        <button class="btn nav-login-btn" id="form-open">Log in</button>
+                        <button class="btn nav-login-btn" id="open-form">Log in</button>
                         <ion-icon name="menu-outline" class="hamburger-btn"></ion-icon>
                     </div>
                 </div>
             </div>
         </nav>
+        <!-- Modal form -->
         <div class="blur-bg-overlay"></div>
-        <section class="modal_form">
-            <div class="form_container">
-                <ion-icon name="close-outline" class="form_close"></ion-icon>
-                <!-- Login Form -->
-                <div class="form login_form">
-                    <form action="#">
-                        <h3>Log in</h3>
-                        <div class="input_box">
-                            <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email"
-                                required />
-                            <small id="loginEmailError" class="error-message"></small>
-                            <ion-icon name="mail-outline" class="email"></ion-icon>
-                        </div>
-                        <div class="input_box">
-                            <input type="password" id="loginPassword" name="loginPassword"
-                                placeholder="Enter your password" required />
-                            <small id="loginPasswordError" class="error-message"></small>
-                            <ion-icon name="lock-closed-outline" class="password"></ion-icon>
-                            <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
-                        </div>
-                        <div class="option_field">
-                            <span class="checkbox">
-                                <input type="checkbox" id="check" />
-                                <label for="check">Remember me</label>
-                            </span>
-                            <a href="#" class="forgot_pw">Forgot password?</a>
-                        </div>
-                        <button type="submit" class="btn form-btn">Log in Now</button>
-                        <div class="login_signup">Don't have an account? <a href="#" id="signup"> Sign up</a></div>
-                    </form>
-                </div>
-                <!-- Sign up Form -->
-                <div class="form signup_form">
-                    <form action="#">
-                        <h3>Sign up</h3>
-                        <div class="input_box">
-                            <input type="email" id="signupEmail" name="signupEmail" placeholder="Enter your email"
-                                required />
-                            <small id="loginEmailError" class="error-message"></small>
-                            <ion-icon name="mail-outline" class="email"></ion-icon>
-                        </div>
-                        <div class="input_box">
-                            <input type="password" id="signupPassword" name="signupPassword"
-                                placeholder="Create password" required />
-                            <small id="loginPasswordError" class="error-message"></small>
-                            <ion-icon name="lock-closed-outline" class="password"></ion-icon>
-                            <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
-                        </div>
-                        <div class="input_box">
-                            <input type="password" id="confirmPassword" name="confirmPassword"
-                                placeholder="Confirm password" required />
-                            <small id="loginPasswordError" class="error-message"></small>
-                            <ion-icon name="lock-closed-outline" class="password"></ion-icon>
-                            <ion-icon name="eye-off-outline" class="pw_hide eye-slash"></ion-icon>
-                        </div>
-                        <button type="submit" class="btn form-btn">Sign up Now</button>
-                        <div class="login_signup">Already have an account? <a href="#" id="login">Log in</a></div>
-                    </form>
+        <div class="modal-form modal-hidden" id="modal-form">
+            <ion-icon name="close-outline" class="form-close"></ion-icon>
+            <div class="form-container sign-up-container">
+                <form action="#" id="register-form">
+                    <h3> Sign Up </h3>
+                    <div class="social-container">
+                        <a href="#" class="social"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="social"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#" class="social"><ion-icon name="logo-apple"></ion-icon></a>
+                    </div>
+                    <span>or use your email for registration</span>
+                    <input type="text" name="user" id="user" placeholder="Username" required />
+                    <input type="email" name="email" id="email" placeholder="Email" required />
+                    <div class="input-password">
+                        <input type="password" name="password" id="password" placeholder="Password" required />
+                        <ion-icon name="eye-outline" class="eye"></ion-icon>
+                    </div>
+                    <button type="submit" class="btn btn-sign-up"> Sign Up </button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h3>Sign in</h3>
+                    <div class="social-container">
+                        <a href="#" class="social"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="social"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#" class="social"><ion-icon name="logo-apple"></ion-icon></a>
+                    </div>
+                    <span>or use your account</span>
+                    <input type="email" name="email" id="in-email" placeholder="Email" required />
+                    <div class="input-password">
+                        <input type="password" name="password" id="in-password" placeholder="Password" required />
+                        <ion-icon name="eye-outline" class="eye"></ion-icon>
+                    </div>
+                    <a href="#">Forgot your password?</a>
+                    <button type="submit" class="btn">Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h3>Welcome Back!</h3>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="btn" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h3>Hello, Friend!</h3>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button class="btn" id="signUp">Sign Up</button>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
     </header>
     <main class="main">
         <!--HOME-->

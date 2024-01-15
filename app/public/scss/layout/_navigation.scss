@@ -7,17 +7,17 @@
 
 .navbar {
     // Overall navbar container
-    @include position(fixed, 0, null, null, 0);
+    @include position(absolute, 0, null, null, 0);
     @include size(100%, 8rem);
     @include flexbox(null, null, center);
 
-    z-index: 10;
-    background: rgba(255, 255, 255, 0);
+    z-index: 110;
 
     @include transition(all, 0.5s, ease);
 
     // Scrolled state (opaque background)
-    &.scrolled {
+    &.fixed {
+        position: fixed;
         background: rgba(255, 255, 255, 1);
     }
 
@@ -37,22 +37,69 @@
     // ------------------------------------------------
     // Logo display
     // ------------------------------------------------
-    .nav-imagotipo {
-        img {
-            @include size(9rem, 4.5rem);
-
-            @include to(850px) {
-                display: none;
-            }
-        }
+    .logo-and-search {
+        @include flexbox(row, null, center);
+        @include size(90%, null)
     }
 
     .nav-isologo {
         img {
             @include size(4rem, 4rem);
+        }
+    }
 
-            @include from(850px) {
-                display: none;
+    .search-navbar {
+        width: 90%;
+        margin: 0 2rem;
+
+        .search-box {
+            min-width: 20rem;
+            height: 4rem;
+            position: relative;
+
+            @include to(850px) {
+                min-width: 15rem;
+            }
+
+            @include to(480px) {
+                min-width: 5rem;
+            }
+
+            .search-icon {
+                @include position(absolute, 50%, null, null, 1.5rem);
+                @include typeface($ism, null, $primary-color);
+                --ionicon-stroke-width: 60px;
+
+
+                cursor: default;
+                transform: translateY(-50%);
+
+                @include to(480px) {
+                    left: 0.8rem
+                }
+            }
+
+            input {
+                @include size(100%, 100%);
+                @include typeface($tsm, 600, $primary-color);
+
+                outline: none;
+                border: none;
+                padding-left: 4rem;
+                border: 0.2rem solid $primary-color;
+                border-radius: 2.4rem;
+
+                &::placeholder {
+                    color: $primary-color;
+                }
+
+                &:focus::placeholder {
+                    font-size: 0;
+                }
+
+                @include to(480px) {
+                    padding-left: 2.5rem;
+                }
             }
         }
     }
@@ -64,68 +111,206 @@
         @include flexbox(row, null, center);
 
         .links {
-            @include flexbox(row, null, null);
-            gap: 3rem;
+            @include flexbox(row, null, center);
+            gap: 2rem;
 
             @include to(850px) {
                 @include position(fixed, 0, -100%, null, null);
-                @include size(100%, 100vh);
+                @include size(100%, 100%);
 
-                padding-top: 6rem;
-                text-align: center;
+                padding-top: 8rem;
                 background: $white-color;
                 display: block;
                 z-index: 10;
+                overflow: auto;
 
                 @include transition(null, 0.2s, ease);
+
+                li:first-of-type {
+                    border-top: solid 0.1rem $gray-light;
+                }
             }
 
-            li:last-child {
-                margin-right: 3rem;
+            li {
 
                 @include to(850px) {
-                    margin-right: 0;
+                    &:hover {
+                        background-color: $gray-light;
+                    }
+                }
+                &:last-child {
+                    margin-right: 2rem;
+
+                    @include to(850px) {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            a {
+                @include typeface($tsm, 700, $primary-color);
+                @include transition(0.1s, ease);
+
+                @include to(850px) {
+                    @include size(100%, 100%);
+                    display: inline-flex;
+                    margin: 2rem 2rem;
+                    font-size: $tsm;
+                }
+            }
+
+            .dropdown-item {
+                position: relative;
+
+                .nav-link-profile {
+                    @include flexbox(row, null, center);
+                    column-gap: .5rem;
+
+                    .avatar {
+                        @include size(3rem, 3rem);
+
+                        display: inline-flex;
+                        border: 0.1rem solid $gray-light;
+                        background-color: $white-color;
+                        border-radius: 50%;
+
+                        @include to(850px) {
+                            display: none;
+                        }
+
+                        img {
+                            @include size(3rem, 3rem);
+
+                            @include to(850px) {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .dropdown-arrow {
+                        @include typeface($ism, null, $primary-color);
+                        cursor: pointer;
+
+                        @include transition(transform, 0.4s, ease);
+
+                        @include to(850px) {
+                            display: none;
+                        }
+                    }
+                }
+
+                .dropdown-menu {
+                    @include flexbox(column, null, flex-start);
+                    @include position(absolute, 4.5rem, null, null, -18rem);
+
+                    max-height: 0;
+                    min-width: 23rem;
+                    overflow: hidden;
+                    background-color: $white-color;
+                    border-radius: 0.8rem;
+                    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.4);
+
+                    @include transition(max-height, 0.4s, ease-out);
+
+                    @include to(850px) {
+                        @include position(relative, 0, 0, 0, 0);
+
+                        max-height: none;
+                        box-shadow: none;
+                    }
+
+                    li {
+                        width: 100%;
+                        padding: 1rem;
+
+                        @include to(850px) {
+                            padding: 0;
+                        }
+
+                        &:first-child {
+                            margin-top: 1rem;
+
+                            @include to(850px) {
+                                margin-top: 0;
+                            }
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0.5rem;
+                        }
+
+                        &:hover {
+                            background-color: $gray-light;
+
+                            &:last-child {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+
+                    .dropdown-link {
+                        @include flexbox(row, null, center);
+                        @include typeface($links-span, 700, $primary-color);
+                        column-gap: 1rem;
+
+                        @include transition(background-color, 0.3s, ease);
+
+                        @include to(850px) {
+                            font-size: $tsm;
+                        }
+
+                        ion-icon {
+                            @include typeface($ixs, null, $primary-color);
+
+                            @include to(850px) {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .dropdown-link-social {
+                        @include flexbox(row, space-between, null);
+                        width: auto;
+
+                        ion-icon {
+                            @include typeface($ism, null, $primary-color);
+                            @include transition(transform, 0.3s, ease-in-out);
+
+                            &:hover {
+                                transform: scale(1.4);
+                            }
+
+                            @include to(850px) {
+                                font-size: $tlg;
+                            }
+                        }
+                    }
+
+                    .separator {
+                        @include size(100%, 0.1rem);
+                        margin: 1rem 0;
+                        background-color: $gray-light;
+
+                        @include to(850px) {
+                            margin: 0;
+                            height: 0.1rem;
+                        }
+                    }
+                }
+
+                &:hover .dropdown-arrow {
+                    transform: rotate(180deg);
+                }
+
+                &:hover .dropdown-menu {
+                    max-height: 1000px;
+                    transition: max-height .4s ease-in;
                 }
             }
         }
     }
 
-    // ------------------------------------------------
-    // Links
-    // ------------------------------------------------
-    .links a {
-        position: relative;
 
-        @include typeface($tmd, 700, $primary-color);
-        @include transition(0.1s, ease);
-
-        @include to(850px) {
-            display: inline-flex;
-            margin: 2rem 0;
-            font-size: $tsm;
-        }
-
-        &::after {
-            content: "";
-            background-color: $secondary-color;
-
-            @include position(absolute, null, null, 0, 0);
-            @include size(0, 0.2rem);
-            @include transition(width, 0.3s);
-        }
-
-        &:hover {
-            color: $secondary-color;
-
-            @include to(850px) {
-                padding: 0.2rem
-            }
-
-            &::after {
-                width: 100%;
-            }
-        }
-    }
 
     @include to(850px) {
         .links.show-menu {
@@ -134,6 +319,9 @@
     }
 
     .menu-container {
+        @include flexbox(row, center, center);
+        gap: 1rem;
+
         @include to(850px) {
             @include flexbox(row, null, center);
         }
@@ -163,24 +351,80 @@
         }
     }
 
-    .nav-search-btn {
-        margin-right: 1rem;
-        @include typeface($tmd, null, inherit);
-        @include size(8rem, 4rem);
+    .dropdown-container {
+        position: relative;
+
+        .avatar {
+            @include size(3rem, 3rem);
+
+
+            display: inline-flex;
+            border: 0.1rem solid $gray-light;
+            background-color: $white-color;
+            border-radius: 50%;
+
+            img {
+                @include size(3rem, 3rem);
+            }
+        }
+
+        .btn-dropdown {
+            @include flexbox(row, null, center);
+            gap: 0.5rem;
+            background-color: transparent;
+            border: none;
+
+            ion-icon {
+                @include typeface($ism, null, $primary-color);
+                cursor: pointer;
+            }
+
+            &:last-child:hover {
+                transform: rotate(180deg);
+            }
+
+        }
+
+        .dropdown-menu {
+            @include flexbox(column, center, flex-start);
+            position: absolute;
+            margin-top: 1rem;
+            top: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            border-radius: 0.25rem;
+            z-index: 1000;
+            display: none;
+        }
+
+        &:hover .dropdown-menu {
+            display: block;
+        }
+
+    }
+
+    .nav-upload-btn {
+        @include typeface($tsm, 700, inherit);
+        @include size(10rem, 5rem);
+
+        margin-left: 1rem;
 
         @include to(850px) {
-            font-size: $ism;
-            margin-right: 0;
+            margin: 0;
+        }
+
+        @include to(480px) {
+            @include size(8rem, 4rem);
+            margin: 0;
         }
 
         // Icon styling
-        .nav-search-icon {
-            margin-right: 0.3rem;
-            @include typeface($ixs, null, inherit);
-            --ionicon-stroke-width: 70px;
+        .nav-upload-icon {
+            @include typeface($im, null, inherit);
+            --ionicon-stroke-width: 50px;
 
             @include to(850px) {
-                font-size: $ism;
+                font-size: $im;
                 margin-right: 0;
             }
 
@@ -198,13 +442,11 @@
     }
 
     .nav-login-btn {
-        @include size(8rem, 4rem);
-
-        @include to(850px) {
-                font-size: $tsm;
-                margin: 0 1rem;
-        }
+        @include typeface($tsm, 700, inherit);
+        @include size(10rem, 5rem);
+        outline: none;
     }
+
 
     @include to(850px) {
         :is(.hamburger-btn) {
