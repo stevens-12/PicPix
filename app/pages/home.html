@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/app/assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/app/public/css/main.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/main.css">
 
     <title>PicPix</title>
 </head>
@@ -18,7 +18,7 @@
             <div class="nav-container">
                 <div>
                     <a href="#" class="nav-isologo">
-                        <img src="/app/assets/isologo-1.png" alt="logo">
+                        <img src="/assets/isologo-1.png" alt="logo">
                     </a>
                 </div>
                 <div class="links-container">
@@ -48,17 +48,21 @@
                         <a href="#" class="social"><ion-icon name="logo-apple"></ion-icon></a>
                     </div>
                     <span>or use your email for registration</span>
-                    <input type="text" name="user" id="user" placeholder="Username" required />
+                    <label for="User" class="sr-only">User</label>
+                    <input type="text" name="User" id="User" placeholder="Username" required />
+                    <label for="email" class="sr-only">Email</label>
                     <input type="email" name="email" id="email" placeholder="Email" required />
                     <div class="input-password">
-                        <input type="password" name="password" id="password" placeholder="Password" required />
+                        <label for="Password" class="sr-only">Password</label>
+                        <input type="password" name="Password" id="Password" placeholder="Password" />
                         <ion-icon name="eye-outline" class="eye"></ion-icon>
                     </div>
+                    <p class="error-msg error-msg-reg hidden-msg">Error registering</p>
                     <button type="submit" class="btn btn-sign-up"> Sign Up </button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                <form action="#">
+                <form action="#" id="login-form">
                     <h3>Sign in</h3>
                     <div class="social-container">
                         <a href="#" class="social"><ion-icon name="logo-facebook"></ion-icon></a>
@@ -66,11 +70,14 @@
                         <a href="#" class="social"><ion-icon name="logo-apple"></ion-icon></a>
                     </div>
                     <span>or use your account</span>
-                    <input type="email" name="email" id="in-email" placeholder="Email" required />
+                    <label for="user" class="sr-only">User</label>
+                    <input type="text" name="user" id="user" placeholder="Username" required />
                     <div class="input-password">
-                        <input type="password" name="password" id="in-password" placeholder="Password" required />
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password" />
                         <ion-icon name="eye-outline" class="eye"></ion-icon>
                     </div>
+                    <p class="error-msg error-msg-log hidden-msg">Login error</p>
                     <a href="#">Forgot your password?</a>
                     <button type="submit" class="btn">Sign In</button>
                 </form>
@@ -107,13 +114,13 @@
                     </p>
                     <p class="home__paragraph_2">Do you dare to discover what will be the next masterpiece?"...</p>
 
-                    <a href="./gallery.html" class="btn home__button">
+                    <a href="/" id="open-login-link" class="btn home__button">
                         View Gallery
                     </a>
                 </div>
 
                 <div class="home__img">
-                    <img src="/app/assets/isotipo-1.png">
+                    <img src="/assets/isotipo-1.png">
                 </div>
             </div>
             <!--FOOTER-->
@@ -125,10 +132,10 @@
         </section>
     </main>
 
-    <script type="module" src="/app/public/modules/home.js" defer></script>
     <script script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"> </script>
     <script script nomodule src="https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js"> </script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script type="module" src="/modules/home.js" defer></script>
 
 </body>
 

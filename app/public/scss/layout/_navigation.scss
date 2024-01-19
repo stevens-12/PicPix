@@ -116,8 +116,9 @@
 
             @include to(850px) {
                 @include position(fixed, 0, -100%, null, null);
-                @include size(100%, 100%);
+                @include size(auto, 100%);
 
+                min-width: 40%;
                 padding-top: 8rem;
                 background: $white-color;
                 display: block;
@@ -138,6 +139,7 @@
                         background-color: $gray-light;
                     }
                 }
+
                 &:last-child {
                     margin-right: 2rem;
 
@@ -221,7 +223,7 @@
 
                     li {
                         width: 100%;
-                        padding: 1rem;
+                        padding: 1.8rem;
 
                         @include to(850px) {
                             padding: 0;
@@ -235,10 +237,6 @@
                             }
                         }
 
-                        &:last-child {
-                            margin-bottom: 0.5rem;
-                        }
-
                         &:hover {
                             background-color: $gray-light;
 
@@ -250,7 +248,7 @@
 
                     .dropdown-link {
                         @include flexbox(row, null, center);
-                        @include typeface($links-span, 700, $primary-color);
+                        @include typeface($txs, 700, $primary-color);
                         column-gap: 1rem;
 
                         @include transition(background-color, 0.3s, ease);
@@ -288,7 +286,8 @@
 
                     .separator {
                         @include size(100%, 0.1rem);
-                        margin: 1rem 0;
+                        margin: 0;
+                        padding: 0 1.6rem;
                         background-color: $gray-light;
 
                         @include to(850px) {
@@ -315,6 +314,9 @@
     @include to(850px) {
         .links.show-menu {
             right: 0;
+            border-left: solid 0.2rem $gray-light;
+            box-shadow: 0 0.7rem 1rem rgba(0, 0, 0, 0.1);
+            @include transition(all, 0.5s, ease);
         }
     }
 

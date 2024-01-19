@@ -191,6 +191,14 @@
         }
     }
 
+    .error-msg {
+        @include typeface($spm, 400, red);
+    }
+
+    .hidden-msg {
+        display: none;
+    }
+
     .btn {
         @include size(80%, 4rem);
 
@@ -276,10 +284,10 @@
 
             &:hover {
                 border: 0.2rem solid $primary-color;
-                background-color: $accent-orange-color;
+                background-color: $accent-blue-color;
                 color: $primary-color;
-                box-shadow: 0 0.2rem 0.4rem 0 $accent-orange-color,
-                    0.2rem 0.4rem 0 $accent-orange-color;
+                box-shadow: 0 0.2rem 0.4rem 0 $accent-blue-color,
+                    0.2rem 0.4rem 0 $accent-blue-color;
             }
         }
     }

@@ -10,8 +10,8 @@
 // ------------------------------------------------
 // Typography variables
 // ------------------------------------------------
-$primary-font: "Mulish", sans-serif;    // Primary font for text content
-$title-font: "Arima", sans-serif;       // Font for titles and headings
+$primary-font: "Mulish", sans-serif; // Primary font for text content
+$title-font: "Arima", sans-serif; // Font for titles and headings
 
 // ------------------------------------------------
 // Font size variables
@@ -20,32 +20,33 @@ $title-font: "Arima", sans-serif;       // Font for titles and headings
 // ---------------
 // Headings
 // ---------------
-$h1: 7rem;      // Largest heading
-$h2: 5rem;      // Medium heading
-$h3: 2.4rem;    // Small heading
+$h1: 7rem; // Largest heading
+$h2: 5rem; // Medium heading
+$h3: 2.4rem; // Small heading
 
 // ---------------
 // Text content
 // ---------------
-$tlg: 2rem;     // Large text
-$tmd: 1.8rem;   // Medium text
-$tsm: 1.6rem;   // Small text
+$tlg: 2rem; // Large text
+$tmd: 1.8rem; // Medium text
+$tsm: 1.6rem; // Small text
+$txs: 1.4rem; // Extra small text
 
 // ---------------
 // Spans
 // ---------------
-$links-span: 1.4rem;    // Font size for links
+$links-span: 1.4rem; // Font size for links
 $spm: 1.2rem;
 
 
 // ---------------
 // Icons
 // ---------------
-$ilg: 2.4rem;   // Large icons
-$im: 2rem;      // Medium icons
-$imd: 1.8rem;   // Medium-small icons
-$ism: 1.6rem;   // Small icons
-$ixs: 1.4rem;   // X small icons
+$ilg: 2.4rem; // Large icons
+$im: 2rem; // Medium icons
+$imd: 1.8rem; // Medium-small icons
+$ism: 1.6rem; // Small icons
+$ixs: 1.4rem; // X small icons
 
 // ------------------------------------------------
 // Color variables
@@ -54,25 +55,24 @@ $ixs: 1.4rem;   // X small icons
 // ---------------
 // Brand colors
 // ---------------
-$primary-color: #112d4e;    // Primary brand color
-$secondary-color: #1d4e89;  // Secondary brand color
-$third-color: #dbe2ef;      // Third brand color
+$primary-color: #112d4e; // Primary brand color
+$secondary-color: #1d4e89; // Secondary brand color
+$third-color: #dbe2ef; // Third brand color
 
 // -------------
 // Accent colors
 // -------------
-$accent-orange-color: #FF4B2B;  // Optional accent orange color
-$accent-blue-color: #d0e3ef;    // Optional accent blue color
+$accent-blue-color: #edf4fc; // Optional accent blue color
 
 // ---------------
 // Grayscale
 // ---------------
-$gray-light: #eee;   // Light shade of gray
-$gray-medium: #dee2e6;  // Medium shade of gray
-$gray-dark: #495057;    // Dark shade of gray
+$gray-light: #eee; // Light shade of gray
+$gray-medium: #dee2e6; // Medium shade of gray
+$gray-dark: #495057; // Dark shade of gray
 
 // ---------------
 // Basic colors
 // ---------------
-$black-color: #000000;  // Black color
-$white-color: #ffffff;  // White color
+$black-color: #000000; // Black color
+$white-color: #ffffff; // White color

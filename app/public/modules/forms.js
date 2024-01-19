@@ -5,6 +5,12 @@ const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('modal-form');
 const pwShowHide = document.querySelectorAll(".eye");
+const messageErrorReg = document.getElementsByClassName("error-msg-reg")[0];
+const messageErrorLog = document.getElementsByClassName("error-msg-log")[0];
+
+
+const openLoginLink = document.getElementById('open-login-link');
+
 
 export function initializeForm() {
     // Agrupar listeners
@@ -32,7 +38,6 @@ export function initializeForm() {
         }
     });
 
-
     const togglePasswordVisibility = (icon) => {
         const input = icon.parentElement.querySelector("input");
         if (input.type === "password") {
@@ -49,4 +54,59 @@ export function initializeForm() {
         icon.addEventListener("click", () => togglePasswordVisibility(icon));
     });
 
+    function removeRightPanelActive() {
+        container.classList.remove("right-panel-active");
+    }
+
+    document.getElementById("register-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const user = document.getElementById('User').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('Password').value;
+        console.log(user, email, password);
+        const res = await fetch("http://localhost:4000/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user: user,
+                email: email,
+                password: password
+            })
+        });
+        if (!res.ok) return messageErrorReg.classList.toggle("hidden-msg", false);
+        const resJson = await res.json();
+        if (resJson.status === "ok") {
+            removeRightPanelActive();
+            messageErrorReg.classList.toggle("hidden-msg", true);
+            document.getElementById("register-form").reset();
+        }
+    });
+
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const user = document.getElementById('user').value;
+        const password = document.getElementById('password').value;
+        const res = await fetch("http://localhost:4000/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user, password
+            })
+        });
+        if (!res.ok) return messageErrorLog.classList.toggle("hidden-msg", false);
+        const resJson = await res.json();
+        if (resJson.redirect) {
+            window.location.href = resJson.redirect;
+        }
+    })
+
+
+    openLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        formOpenBtn.click();
+    });
 }

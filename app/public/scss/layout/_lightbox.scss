@@ -49,6 +49,7 @@
         @include to(850px) {
             max-width: calc(100% - 8.5rem);
         }
+
         @include to(480px) {
             max-width: calc(100% - 3.5rem);
         }
