@@ -1,25 +1,26 @@
-// ===============================================================
 // This file contains the import rules for the project's
 // stylesheets.
-// ===============================================================
 
 // 1. Configuration and helpers
+// The `variables` file defines the project's global variables,
 @import 'abstracts/variables',
 'abstracts/mixins';
 
 // 2. Base styles
+// The `reset` file resets the default browser styles.
 @import 'base/reset';
 
-// 3. Layout
+// 3. Components
+@import 'components/buttons',
+'components/overlay';
+
+// 4. Layout
 @import 'layout/navigation',
 'layout/forms',
 'layout/search',
 'layout/lightbox';
 
-// 4. Components
-@import 'components/buttons',
-'components/overlay';
-
 // 5. Pages
+// The `pages` folder contains the stylesheets for each page in the project
 @import 'pages/home',
 'pages/gallery';

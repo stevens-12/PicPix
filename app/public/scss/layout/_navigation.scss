@@ -1,9 +1,5 @@
-// ===============================================================
-// Navbar styles
-//
-// This file styles the navbar, including its layout, responsiveness,
-// scrolling effects, logo display, links, and menu functionality.
-// ===============================================================
+// Navbar styles.
+// This file styles the navbar, including.
 
 .navbar {
     // Overall navbar container
@@ -21,9 +17,7 @@
         background: rgba(255, 255, 255, 1);
     }
 
-    // ------------------------------------------------
     // Nav container
-    // ------------------------------------------------
     .nav-container {
         @include size(80%, null);
         @include flexbox(row, space-between, null);
@@ -34,9 +28,7 @@
         }
     }
 
-    // ------------------------------------------------
     // Logo display
-    // ------------------------------------------------
     .logo-and-search {
         @include flexbox(row, null, center);
         @include size(90%, null)
@@ -67,7 +59,7 @@
 
             .search-icon {
                 @include position(absolute, 50%, null, null, 1.5rem);
-                @include typeface($ism, null, $primary-color);
+                @include typeface($size-sm, null, $blue-picpix-950);
                 --ionicon-stroke-width: 60px;
 
 
@@ -81,16 +73,16 @@
 
             input {
                 @include size(100%, 100%);
-                @include typeface($tsm, 600, $primary-color);
+                @include typeface($font-sm, 600, $blue-picpix-950);
 
                 outline: none;
                 border: none;
                 padding-left: 4rem;
-                border: 0.2rem solid $primary-color;
+                border: 0.2rem solid $blue-picpix-950;
                 border-radius: 2.4rem;
 
                 &::placeholder {
-                    color: $primary-color;
+                    color: $blue-picpix-950;
                 }
 
                 &:focus::placeholder {
@@ -104,9 +96,7 @@
         }
     }
 
-    // ------------------------------------------------
     // Links container
-    // ------------------------------------------------
     .links-container {
         @include flexbox(row, null, center);
 
@@ -123,12 +113,11 @@
                 background: $white-color;
                 display: block;
                 z-index: 10;
-                overflow: auto;
 
                 @include transition(null, 0.2s, ease);
 
                 li:first-of-type {
-                    border-top: solid 0.1rem $gray-light;
+                    border-top: solid 0.1rem $blue-picpix-50;
                 }
             }
 
@@ -136,7 +125,7 @@
 
                 @include to(850px) {
                     &:hover {
-                        background-color: $gray-light;
+                        background-color: $blue-picpix-50;
                     }
                 }
 
@@ -150,14 +139,14 @@
             }
 
             a {
-                @include typeface($tsm, 700, $primary-color);
+                @include typeface($font-sm, 700, $blue-picpix-950);
                 @include transition(0.1s, ease);
 
                 @include to(850px) {
                     @include size(100%, 100%);
                     display: inline-flex;
                     margin: 2rem 2rem;
-                    font-size: $tsm;
+                    font-size: $font-sm;
                 }
             }
 
@@ -172,7 +161,7 @@
                         @include size(3rem, 3rem);
 
                         display: inline-flex;
-                        border: 0.1rem solid $gray-light;
+                        border: 0.1rem solid $blue-picpix-50;
                         background-color: $white-color;
                         border-radius: 50%;
 
@@ -190,7 +179,7 @@
                     }
 
                     .dropdown-arrow {
-                        @include typeface($ism, null, $primary-color);
+                        @include typeface($size-sm, null, $blue-picpix-950);
                         cursor: pointer;
 
                         @include transition(transform, 0.4s, ease);
@@ -237,8 +226,12 @@
                             }
                         }
 
+                        &:last-child {
+                            margin-bottom: 0.5rem;
+                        }
+
                         &:hover {
-                            background-color: $gray-light;
+                            background-color: $blue-picpix-50;
 
                             &:last-child {
                                 background-color: transparent;
@@ -248,17 +241,17 @@
 
                     .dropdown-link {
                         @include flexbox(row, null, center);
-                        @include typeface($txs, 700, $primary-color);
+                        @include typeface($font-xs, 700, $blue-picpix-950);
                         column-gap: 1rem;
 
                         @include transition(background-color, 0.3s, ease);
 
                         @include to(850px) {
-                            font-size: $tsm;
+                            font-size: $font-sm;
                         }
 
                         ion-icon {
-                            @include typeface($ixs, null, $primary-color);
+                            @include typeface($size-xs, null, $blue-picpix-950);
 
                             @include to(850px) {
                                 display: none;
@@ -271,7 +264,7 @@
                         width: auto;
 
                         ion-icon {
-                            @include typeface($ism, null, $primary-color);
+                            @include typeface($size-sm, null, $blue-picpix-950);
                             @include transition(transform, 0.3s, ease-in-out);
 
                             &:hover {
@@ -279,7 +272,7 @@
                             }
 
                             @include to(850px) {
-                                font-size: $tlg;
+                                font-size: $font-m;
                             }
                         }
                     }
@@ -288,7 +281,7 @@
                         @include size(100%, 0.1rem);
                         margin: 0;
                         padding: 0 1.6rem;
-                        background-color: $gray-light;
+                        background-color: $blue-picpix-50;
 
                         @include to(850px) {
                             margin: 0;
@@ -314,9 +307,9 @@
     @include to(850px) {
         .links.show-menu {
             right: 0;
-            border-left: solid 0.2rem $gray-light;
+            border-left: solid 0.2rem $blue-picpix-50;
             box-shadow: 0 0.7rem 1rem rgba(0, 0, 0, 0.1);
-            @include transition(all, 0.5s, ease);
+            @include transition(all, 0.5s, ease)
         }
     }
 
@@ -333,7 +326,7 @@
     .hamburger-btn {
         display: none;
         cursor: pointer;
-        @include typeface($ilg, null, $primary-color);
+        @include typeface($size-md, null, $blue-picpix-950);
         --ionicon-stroke-width: 55px;
     }
 
@@ -361,7 +354,7 @@
 
 
             display: inline-flex;
-            border: 0.1rem solid $gray-light;
+            border: 0.1rem solid $blue-picpix-50;
             background-color: $white-color;
             border-radius: 50%;
 
@@ -377,7 +370,7 @@
             border: none;
 
             ion-icon {
-                @include typeface($ism, null, $primary-color);
+                @include typeface($size-sm, null, $blue-picpix-950);
                 cursor: pointer;
             }
 
@@ -406,7 +399,7 @@
     }
 
     .nav-upload-btn {
-        @include typeface($tsm, 700, inherit);
+        @include typeface($font-sm, 700, none);
         @include size(10rem, 5rem);
 
         margin-left: 1rem;
@@ -422,11 +415,10 @@
 
         // Icon styling
         .nav-upload-icon {
-            @include typeface($im, null, inherit);
+            @include typeface($size-m, null, inherit);
             --ionicon-stroke-width: 50px;
 
             @include to(850px) {
-                font-size: $im;
                 margin-right: 0;
             }
 
@@ -444,7 +436,7 @@
     }
 
     .nav-login-btn {
-        @include typeface($tsm, 700, inherit);
+        @include typeface($font-sm, 700, none);
         @include size(10rem, 5rem);
         outline: none;
     }

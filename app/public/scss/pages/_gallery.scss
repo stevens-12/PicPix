@@ -1,18 +1,14 @@
-// ===============================================================
-// Gallery styles
-//
-// This file styles the gallery section, including image display,
-// hover effects, and load more functionality.
-// ===============================================================
+// Gallery styles.
+// This file styles the gallery section, including.
+
+
 .gallery {
     // Overall layout
     @include flexbox(column, null, center);
 
     background-color: $white-color;
 
-    // ------------------------------------------------
     // Image list
-    // ------------------------------------------------
     .images {
         max-width: 80%;
         margin-top: 8rem;
@@ -39,9 +35,7 @@
 
     }
 
-    // ------------------------------------------------
     // Image cards
-    // ------------------------------------------------
     .card {
         position: relative;
         margin-bottom: 2rem;
@@ -73,20 +67,20 @@
 
                 ion-icon {
                     margin-right: 1rem;
-                    font-size: $ism;
+                    font-size: $size-sm;
                     --ionicon-stroke-width: 40px;
 
                 }
 
                 span {
-                    font-size: $tsm;
+                    font-size: $font-sm;
                 }
             }
 
             // Button styling
             button ion-icon {
                 @include size(2rem, 2rem);
-                @include typeface($ism, null, $white-color);
+                @include typeface($size-sm, null, $white-color);
 
                 --ionicon-stroke-width: 40px;
                 border: 0.2rem solid $white-color;
@@ -118,7 +112,7 @@
 
         // Responsive adjustments
         @include to(850px) {
-            font-size: $tsm;
+            font-size: $font-sm;
         }
 
         .disabled {

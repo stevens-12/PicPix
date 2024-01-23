@@ -1,15 +1,12 @@
-// ===============================================================
 // Button styles
-//
 // This file styles the buttons used throughout the project.
-// ===============================================================
+
+// General Buttons Style
 .btn {
-    // Basic styles
-    @include typeface($tmd, 700, $primary-color);
+    @include typeface($font-sm, 700, $blue-picpix-950);
     @include size(fit-content, fit-content);
 
-    // padding: 0.9rem 1rem;
-    border: 0.2rem solid $primary-color;
+    border: 0.2rem solid $blue-picpix-950;
     background: transparent;
     border-radius: 0.8rem;
     cursor: pointer;
@@ -19,10 +16,10 @@
     // Hover state
     &:hover {
         border: 0.2rem solid $white-color;
-        background-color: $secondary-color;
+        background-color: $blue-picpix-700;
         color: $white-color;
-        box-shadow: 0 0.2rem 0.4rem 0 $secondary-color,
-            0.2rem 0.4rem 0 $secondary-color;
+        box-shadow: 0 0.2rem 0.4rem 0 $blue-picpix-700,
+            0.2rem 0.4rem 0 $blue-picpix-700;
         transform: translateY(-0.2rem);
     }
 

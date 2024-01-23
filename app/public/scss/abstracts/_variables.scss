@@ -1,78 +1,38 @@
-// ===============================================================
-// Typography and color variables
-//
-// This file defines the project's global typography and
-// color variables. These variables can be used throughout
-// the stylesheets to maintain consistency and make
-// adjustments easier.
-// ===============================================================
+// Global typography and color variables
 
-// ------------------------------------------------
-// Typography variables
-// ------------------------------------------------
+// Typography Variables
 $primary-font: "Mulish", sans-serif; // Primary font for text content
 $title-font: "Arima", sans-serif; // Font for titles and headings
 
-// ------------------------------------------------
-// Font size variables
-// ------------------------------------------------
+// Font sizes
+$font-xl: 7rem;
+$font-l: 5rem;
+$font-md: 2.4rem;
+$font-m: 2rem;
+$font-sm: 1.6rem;
+$font-xs: 1.4rem;
+$font-xxs: 1.2rem;
 
-// ---------------
-// Headings
-// ---------------
-$h1: 7rem; // Largest heading
-$h2: 5rem; // Medium heading
-$h3: 2.4rem; // Small heading
+// Icons size
+$size-md: 2.4rem;
+$size-m: 2rem;
+$size-sm: 1.6rem;
+$size-xs: 1.4rem;
 
-// ---------------
-// Text content
-// ---------------
-$tlg: 2rem; // Large text
-$tmd: 1.8rem; // Medium text
-$tsm: 1.6rem; // Small text
-$txs: 1.4rem; // Extra small text
+//Color variables
+// Brand color
+$blue-picpix-950: #112d4e;
+$blue-picpix-900: #163c64;
+$blue-picpix-800: #144778;
+$blue-picpix-700: #135291;
+$blue-picpix-600: #1668b3;
+$blue-picpix-500: #2484d3;
+$blue-picpix-400: #4ba0e5;
+$blue-picpix-300: #8ac1ef;
+$blue-picpix-200: #c1ddf6;
+$blue-picpix-100: #e3eefb;
+$blue-picpix-50: #f1f7fe;
 
-// ---------------
-// Spans
-// ---------------
-$links-span: 1.4rem; // Font size for links
-$spm: 1.2rem;
-
-
-// ---------------
-// Icons
-// ---------------
-$ilg: 2.4rem; // Large icons
-$im: 2rem; // Medium icons
-$imd: 1.8rem; // Medium-small icons
-$ism: 1.6rem; // Small icons
-$ixs: 1.4rem; // X small icons
-
-// ------------------------------------------------
-// Color variables
-// ------------------------------------------------
-
-// ---------------
-// Brand colors
-// ---------------
-$primary-color: #112d4e; // Primary brand color
-$secondary-color: #1d4e89; // Secondary brand color
-$third-color: #dbe2ef; // Third brand color
-
-// -------------
-// Accent colors
-// -------------
-$accent-blue-color: #edf4fc; // Optional accent blue color
-
-// ---------------
-// Grayscale
-// ---------------
-$gray-light: #eee; // Light shade of gray
-$gray-medium: #dee2e6; // Medium shade of gray
-$gray-dark: #495057; // Dark shade of gray
-
-// ---------------
 // Basic colors
-// ---------------
-$black-color: #000000; // Black color
-$white-color: #ffffff; // White color
+$black-color: #000000;
+$white-color: #ffffff;

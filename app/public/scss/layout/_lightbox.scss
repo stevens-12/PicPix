@@ -1,9 +1,5 @@
-// ===============================================================
-// Lightbox styles
-//
-// This file styles the lightbox element, which provides a focused
-// view of individual images.
-// ===============================================================
+// Lightbox styles.
+// This file styles the lightbox element, including.
 
 .lightbox {
     // Overall lightbox container
@@ -24,9 +20,7 @@
         }
     }
 
-    // ------------------------------------------------
     // Image wrapper
-    // ------------------------------------------------
     .wrapper {
         @include position(fixed, 55%, null, null, 50%);
         @include size(100%, null);
@@ -54,25 +48,23 @@
             max-width: calc(100% - 3.5rem);
         }
 
-        // ------------------------------------------------
         // Header
-        // ------------------------------------------------
         header {
             @include flexbox(null, space-between, center);
 
             .photographer {
-                color: $primary-color;
+                color: $blue-picpix-950;
                 @include flexbox(null, space-between, center);
 
                 ion-icon {
                     margin-right: 1rem;
-                    font-size: $ism;
+                    font-size: $size-sm;
                     --ionicon-stroke-width: 40px;
                     cursor: auto;
                 }
 
                 span {
-                    font-size: $tsm;
+                    font-size: $font-sm;
                 }
             }
 
@@ -81,7 +73,7 @@
 
                 ion-icon {
                     @include size(2rem, 2rem);
-                    @include typeface($ixs, null, $primary-color);
+                    @include typeface($size-xs, null, $blue-picpix-950);
 
                     --ionicon-stroke-width: 40px;
                     padding: 0.8rem;
@@ -97,9 +89,7 @@
             }
         }
 
-        // ------------------------------------------------
         // Image preview
-        // ------------------------------------------------
         .preview-img {
             @include flexbox(null, center, null);
             margin-top: 2rem;

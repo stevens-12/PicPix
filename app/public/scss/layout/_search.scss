@@ -1,9 +1,5 @@
-// ===============================================================
-// Search section styles
-//
-// This file styles the search section, including its layout,
-// background patterns, content positioning, and search input field.
-// ===============================================================
+// Search section styles.
+// This file styles the search section, including.
 
 .search {
     // Overall container
@@ -12,9 +8,7 @@
     height: 50rem;
     position: relative;
 
-    // ------------------------------------------------
     // Background pattern
-    // ------------------------------------------------
     &::before {
         @include size(100%, 100%);
         position: absolute;
@@ -46,12 +40,10 @@
         opacity: 0.4;
     }
 
-    // ------------------------------------------------
     // Content container
-    // ------------------------------------------------
     .content {
         @include size(70rem, null);
-        color: $primary-color;
+        color: $blue-picpix-950;
         padding: 0 2rem;
         text-align: center;
 
@@ -65,9 +57,7 @@
             margin-bottom: 4rem;
         }
 
-        // ------------------------------------------------
         // Search box
-        // ------------------------------------------------
         .search-box {
             height: 5.5rem;
             position: relative;
@@ -75,7 +65,7 @@
 
             .search-icon {
                 @include position(absolute, 50%, null, null, 2rem);
-                @include typeface($imd, null, $primary-color);
+                @include typeface($size-m, null, $blue-picpix-950);
                 --ionicon-stroke-width: 70px;
 
 
@@ -85,18 +75,18 @@
 
             input {
                 @include size(100%, 100%);
-                @include typeface($tlg, 700, $primary-color);
+                @include typeface($font-m, 700, $blue-picpix-950);
 
                 outline: none;
                 border: none;
 
                 padding-left: 5.5rem;
                 background: rgba(255, 255, 255, 0.3);
-                border: 0.25rem solid $primary-color;
+                border: 0.25rem solid $blue-picpix-950;
                 border-radius: 0.8rem;
 
                 &::placeholder {
-                    color: $primary-color;
+                    color: $blue-picpix-950;
                 }
 
                 &:focus::placeholder {

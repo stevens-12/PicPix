@@ -1,8 +1,7 @@
-// ===============================================================
-// Modal form styles
-//
+// Modal form styles.
 // This file styles the modal form used for login and sign up.
-// ===============================================================
+
+
 .modal-form {
     @include position(fixed, 50%, null, null, 50%);
     @include size(76.8rem, null);
@@ -33,7 +32,7 @@
 
     .form-close {
         @include position(absolute, 2rem, 2rem, null, null);
-        @include typeface($im, 700, $white-color);
+        @include typeface($size-m, 700, $white-color);
 
         --ionicon-stroke-width: 7rem;
         z-index: 110;
@@ -43,7 +42,7 @@
     }
 
     &.right-panel-active .form-close {
-        color: $primary-color;
+        color: $blue-picpix-950;
     }
 
     .form-container {
@@ -96,16 +95,16 @@
         @include size(4rem, 4rem);
 
         display: inline-flex;
-        border: 0.1rem solid $gray-light;
+        border: 0.1rem solid $blue-picpix-50;
         border-radius: 50%;
         margin: 0 0.5rem;
 
         ion-icon {
-            font-size: $ism;
+            font-size: $size-sm;
         }
 
         &:hover {
-            background-color: $secondary-color;
+            background-color: $blue-picpix-700;
             color: $white-color;
         }
 
@@ -121,33 +120,33 @@
 
     h3 {
         @include to(470px) {
-            font-size: $tlg;
+            font-size: $font-m;
         }
     }
 
     a {
-        @include typeface($links-span, 400, $primary-color);
+        @include typeface($font-xs, 400, $blue-picpix-950);
         margin: 1.5rem 0;
 
         @include to(470px) {
-            font-size: $spm;
+            font-size: $font-xxs;
             letter-spacing: -0.06rem;
             margin-top: 0;
         }
     }
 
     span {
-        @include typeface($links-span, 400, $primary-color);
+        @include typeface($font-xs, 400, $blue-picpix-950);
 
         @include to(470px) {
-            font-size: $spm;
+            font-size: $font-xxs;
         }
     }
 
     input {
-        @include typeface($links-span, 400, null);
+        @include typeface($font-xs, 400, null);
 
-        background-color: $gray-light;
+        background-color: $blue-picpix-50;
         border: none;
         border-radius: 0.8rem;
         padding: 1.2rem 1.5rem;
@@ -159,7 +158,7 @@
         }
 
         @include to(470px) {
-            font-size: $spm;
+            font-size: $font-xxs;
             padding: 1.2rem 0.8rem;
         }
     }
@@ -186,13 +185,13 @@
 
             @include to(470px) {
                 padding: 0 1.6rem;
-                font-size: $spm;
+                font-size: $font-xxs;
             }
         }
     }
 
     .error-msg {
-        @include typeface($spm, 400, red);
+        @include typeface($font-xxs, 400, red);
     }
 
     .hidden-msg {
@@ -211,7 +210,7 @@
         }
 
         @include to(470px) {
-            font-size: $tsm;
+            font-size: $font-sm;
         }
     }
 
@@ -268,12 +267,12 @@
         }
 
         p {
-            @include typeface($tsm, 600, $white-color);
+            @include typeface($font-sm, 600, $white-color);
             letter-spacing: 0.04rem;
             margin: 2rem 0 3rem;
 
             @include to(470px) {
-                font-size: $links-span;
+                font-size: $font-xs;
                 letter-spacing: 0;
             }
         }
@@ -283,11 +282,11 @@
             border: 0.2rem solid $white-color;
 
             &:hover {
-                border: 0.2rem solid $primary-color;
-                background-color: $accent-blue-color;
-                color: $primary-color;
-                box-shadow: 0 0.2rem 0.4rem 0 $accent-blue-color,
-                    0.2rem 0.4rem 0 $accent-blue-color;
+                border: 0.2rem solid $blue-picpix-950;
+                background-color: $blue-picpix-100;
+                color: $blue-picpix-950;
+                box-shadow: 0 0.2rem 0.4rem 0 $blue-picpix-100,
+                    0.2rem 0.4rem 0 $blue-picpix-100;
             }
         }
     }
